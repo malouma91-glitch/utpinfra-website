@@ -1,0 +1,193 @@
+import { Link } from 'react-router-dom'
+import ContactForm from '../components/ContactForm'
+
+const values = [
+  {
+    title: 'Kwaliteit',
+    desc: 'Wij leveren altijd hoogwaardige producten en diensten. Kwaliteit staat bij ons op de eerste plaats — in zowel materialen als vakmanschap.',
+    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>,
+  },
+  {
+    title: 'Betrouwbaarheid',
+    desc: 'U kunt op ons rekenen. Wij komen onze afspraken na en staan altijd voor u klaar, ook na de oplevering van een project.',
+    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>,
+  },
+  {
+    title: 'Innovatie',
+    desc: 'De IT-wereld staat nooit stil. Wij volgen de laatste ontwikkelingen op de voet en implementeren de meest moderne oplossingen.',
+    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>,
+  },
+]
+
+function WieZijnWij() {
+  return (
+    <div>
+      {/* Hero header */}
+      <section className="relative py-20 overflow-hidden" style={{ background: 'linear-gradient(135deg, #020817 0%, #0A1628 55%, #0F2044 100%)' }}>
+        <div className="absolute inset-0 dot-pattern" />
+        <div className="container-main relative z-10">
+          <span className="text-blue-400 text-sm font-bold uppercase tracking-widest mb-4 block">
+            <Link to="/" className="hover:text-white transition-colors">Home</Link> / Wie zijn wij
+          </span>
+          <h1 className="text-4xl md:text-5xl font-black font-raleway text-white mb-4">Wie zijn wij?</h1>
+          <p className="text-slate-300 max-w-lg">Maak kennis met het team achter UTPinfra — uw partner in complete IT-infrastructuuroplossingen.</p>
+        </div>
+      </section>
+
+      {/* Main content */}
+      <section className="py-24 bg-white">
+        <div className="container-main">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            {/* Left: text */}
+            <div>
+              <span className="text-blue-600 text-sm font-bold uppercase tracking-widest mb-3 block">Over ons</span>
+              <h2 className="text-3xl font-black font-raleway text-slate-900 mb-6 leading-tight">
+                Uw betrouwbare IT-infrastructuur partner
+              </h2>
+              <p className="text-slate-500 leading-relaxed mb-4">
+                UTPinfra is een jonge en dynamische IT-infrastructuur onderneming gevestigd in Nieuwegein. Wij zijn gespecialiseerd in het realiseren van complete data-infrastructuren voor bedrijven in het MKB, maar ook voor grotere organisaties zoals scholen, ziekenhuizen en overheidsinstanties.
+              </p>
+              <p className="text-slate-500 leading-relaxed mb-4">
+                Onze medewerkers zijn gecertificeerd en hebben jarenlange ervaring in het vakgebied van data-infrastructuur, netwerken en beveiliging. Wij hechten grote waarde aan kwaliteit, betrouwbaarheid en transparantie.
+              </p>
+              <p className="text-slate-500 leading-relaxed mb-8">
+                Bij UTPinfra staat de klant centraal. Wij luisteren naar uw wensen en behoeften en vertalen die naar concrete, passende oplossingen. Wij werken niet voor u, maar met u — samen zorgen wij voor het beste resultaat.
+              </p>
+              <div className="flex gap-4">
+                <Link to="/contact" className="btn-primary">Contact opnemen →</Link>
+                <Link to="/diensten" className="btn-outline !text-slate-700 !border-slate-300 hover:!border-blue-500 hover:!text-blue-600">Onze diensten</Link>
+              </div>
+            </div>
+
+            {/* Right: image */}
+            <div className="relative hidden md:block">
+              <div className="rounded-2xl overflow-hidden shadow-xl h-96">
+                <img
+                  src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=800&q=80"
+                  alt="UTPinfra team aan het werk"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-5 border border-slate-100 flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white shrink-0"
+                  style={{ background: 'linear-gradient(135deg,#2563EB,#06B6D4)' }}>
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="font-black text-slate-900 text-lg leading-none">15+</p>
+                  <p className="text-slate-400 text-xs font-medium mt-0.5">Jaar ervaring</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats */}
+      <section className="py-16 bg-slate-50 border-y border-slate-200">
+        <div className="container-main">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            {[
+              { v: '500+', l: 'Projecten afgerond' },
+              { v: '15+', l: 'Jaar ervaring' },
+              { v: '98%', l: 'Klanttevredenheid' },
+              { v: '24/7', l: 'Service & Support' },
+            ].map((s) => (
+              <div key={s.l}>
+                <div className="stat-number mb-1">{s.v}</div>
+                <div className="text-slate-500 text-sm">{s.l}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Values */}
+      <section className="py-24" style={{ background: 'linear-gradient(135deg, #0A1628 0%, #0F2044 100%)' }}>
+        <div className="container-main">
+          <div className="text-center mb-14">
+            <span className="text-cyan-400 text-sm font-bold uppercase tracking-widest mb-3 block">Onze kernwaarden</span>
+            <h2 className="text-3xl font-black font-raleway text-white mb-4">Waar wij voor staan</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {values.map((v) => (
+              <div key={v.title} className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 group">
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 text-white group-hover:scale-110 transition-transform duration-300"
+                  style={{ background: 'linear-gradient(135deg,#2563EB,#06B6D4)' }}>
+                  {v.icon}
+                </div>
+                <h3 className="text-lg font-bold text-white mb-3">{v.title}</h3>
+                <p className="text-slate-400 text-sm leading-relaxed">{v.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Team photo */}
+      <section className="py-24 bg-white">
+        <div className="container-main">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div className="rounded-2xl overflow-hidden shadow-xl h-72">
+              <img
+                src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=800&q=80"
+                alt="UTPinfra professionals"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div>
+              <span className="text-blue-600 text-sm font-bold uppercase tracking-widest mb-3 block">Ons team</span>
+              <h2 className="text-3xl font-black font-raleway text-slate-900 mb-6">Gemotiveerd en vastberaden</h2>
+              <p className="text-slate-500 leading-relaxed mb-6">
+                Ons team bestaat uit gemotiveerde en vastberaden professionals met een groot netwerk en jarenlange ervaring. U kunt telefonisch, per mail of via het contactformulier contact met ons opnemen.
+              </p>
+              <Link to="/contact" className="btn-primary">Neem contact op →</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact CTA */}
+      <section className="py-20 bg-slate-50">
+        <div className="container-main">
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            <div>
+              <span className="text-blue-600 text-sm font-bold uppercase tracking-widest mb-3 block">Contact</span>
+              <h2 className="text-3xl font-black font-raleway text-slate-900 mb-4">Wilt u meer weten?</h2>
+              <p className="text-slate-500 leading-relaxed mb-6">
+                Wij staan altijd klaar om uw vragen te beantwoorden en u te voorzien van een vrijblijvend advies. Neem vandaag nog contact met ons op.
+              </p>
+              <div className="space-y-3">
+                {[
+                  { label: 'Telefoon', value: '030 237 4 005', href: 'tel:0302374005' },
+                  { label: 'E-mail', value: 'info@utpinfra.nl', href: 'mailto:info@utpinfra.nl' },
+                ].map((c) => (
+                  <a key={c.label} href={c.href} className="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-200 hover:border-blue-300 hover:shadow-card transition-all duration-200 group">
+                    <div className="w-10 h-10 rounded-lg flex items-center justify-center text-white shrink-0"
+                      style={{ background: 'linear-gradient(135deg,#2563EB,#06B6D4)' }}>
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        {c.label === 'Telefoon'
+                          ? <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                          : <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        }
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-xs text-slate-400 font-medium">{c.label}</p>
+                      <p className="text-slate-700 font-semibold group-hover:text-blue-600 transition-colors">{c.value}</p>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+            <ContactForm />
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+export default WieZijnWij

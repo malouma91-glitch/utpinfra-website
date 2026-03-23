@@ -1,0 +1,229 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #1E293B;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.container-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Slider dots */
+.slider-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #CBD5E1;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+  padding: 0;
+}
+.slider-dot.active {
+  background: #2563EB;
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* Service card image overlay */
+.service-img {
+  transition: transform 0.5s ease;
+}
+.service-card:hover .service-img {
+  transform: scale(1.05);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #2563EB 0%, #06B6D4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow button */
+.btn-primary {
+  background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+  color: white;
+  font-weight: 600;
+  padding: 14px 32px;
+  border-radius: 8px;
+  transition: all 0.3s;
+  box-shadow: 0 4px 20px rgba(37,99,235,0.35);
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(37,99,235,0.5);
+}
+
+.btn-outline {
+  background: transparent;
+  color: white;
+  font-weight: 600;
+  padding: 13px 32px;
+  border-radius: 8px;
+  border: 2px solid rgba(255,255,255,0.4);
+  transition: all 0.3s;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+}
+.btn-outline:hover {
+  border-color: white;
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-2px);
+}
+
+/* Grid dot pattern (hero background texture) */
+.dot-pattern {
+  background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ── Tech animations ── */
+
+/* Shimmer sweep — gebruikt op de CTA knop */
+@keyframes shimmer {
+  0%   { transform: translateX(-120%) skewX(-15deg); }
+  100% { transform: translateX(220%)  skewX(-15deg); }
+}
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.22) 50%, transparent 100%);
+  transform: translateX(-120%) skewX(-15deg);
+  animation: shimmer 2.8s ease-in-out infinite;
+}
+
+/* Scanning glow line — topbar */
+@keyframes scanLine {
+  0%   { left: -60%; }
+  100% { left: 110%; }
+}
+.topbar-scan::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 60%;
+  background: linear-gradient(90deg, transparent, rgba(37,99,235,0.06), transparent);
+  animation: scanLine 5s linear infinite;
+  pointer-events: none;
+}
+
+/* Pulsing glow dot */
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 4px 1px rgba(96,165,250,0.6); }
+  50%       { box-shadow: 0 0 10px 3px rgba(96,165,250,0.9); }
+}
+.glow-dot {
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+/* Animated gradient border line at bottom of navbar */
+@keyframes gradientSlide {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.navbar-border {
+  height: 2px;
+  background: linear-gradient(90deg, #1D4ED8, #2563EB, #06B6D4, #0EA5E9, #2563EB, #1D4ED8);
+  background-size: 300% 100%;
+  animation: gradientSlide 4s ease infinite;
+}
+
+/* Glow on nav link hover */
+.nav-link-glow:hover {
+  text-shadow: 0 0 12px rgba(96,165,250,0.6);
+}
+
+/* Animated border rotate */
+@keyframes borderRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Stats number */
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #2563EB, #06B6D4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Topbar USP chip badge */
+.usp-chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 10px 2px 6px;
+  border-radius: 999px;
+  background: rgba(37,99,235,0.08);
+  border: 1px solid rgba(37,99,235,0.2);
+  transition: all 0.3s;
+}
+.usp-chip:hover {
+  background: rgba(37,99,235,0.14);
+  border-color: rgba(37,99,235,0.4);
+}
+
+/* Glowing contact pill */
+.contact-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 12px 3px 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.25s;
+  color: #94A3B8;
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+.contact-pill:hover {
+  background: rgba(37,99,235,0.12);
+  border-color: rgba(37,99,235,0.35);
+  color: #e2e8f0;
+  box-shadow: 0 0 12px rgba(37,99,235,0.2);
+}
