@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom'
 
 const navLinks = [
   { to: '/', label: 'Home', end: true },
-  { to: '/wie-zijn-wij', label: 'Wie zijn wij' },
+  { to: '/wie-zijn-wij', label: 'Over ons' },
   { to: '/diensten', label: 'Diensten' },
   { to: '/referenties', label: 'Referenties' },
   { to: '/contact', label: 'Contact' },
@@ -33,18 +33,17 @@ function Navbar() {
           : '0 1px 0 rgba(226,232,240,0.8)',
       }}
     >
-      {/* Animated gradient border — bottom */}
       <div className="navbar-border absolute bottom-0 left-0 right-0" />
 
       <div className="container-main flex justify-between items-center py-3.5">
 
         {/* ── Logo ── */}
-        <Link to="/" className="flex items-center gap-0 group">
-          <span className="text-[1.45rem] font-black font-raleway text-slate-900 tracking-tight transition-all duration-300 group-hover:text-slate-700">
-            UTP
+        <Link to="/" className="flex items-center gap-1 group">
+          <span className="text-[1.3rem] font-black font-raleway text-slate-900 tracking-tight transition-all duration-300 group-hover:text-slate-700">
+            MK
           </span>
           <span
-            className="text-[1.45rem] font-black font-raleway tracking-tight transition-all duration-300"
+            className="text-[1.3rem] font-black font-raleway tracking-tight transition-all duration-300"
             style={{
               background: 'linear-gradient(135deg,#2563EB,#06B6D4)',
               WebkitBackgroundClip: 'text',
@@ -52,9 +51,9 @@ function Navbar() {
               filter: 'drop-shadow(0 0 8px rgba(37,99,235,0.3))',
             }}
           >
-            infra
+            CoreLink
           </span>
-          {/* Subtle "online" indicator */}
+          <span className="text-[0.75rem] font-semibold text-slate-400 ml-0.5 hidden sm:inline">Group</span>
           <span className="ml-1.5 mt-auto mb-1 flex items-end">
             <span className="glow-dot w-1.5 h-1.5 rounded-full inline-block bg-blue-500" />
           </span>
@@ -77,7 +76,6 @@ function Navbar() {
             >
               {({ isActive }) => (
                 <>
-                  {/* Glowing pill background on active */}
                   {isActive && (
                     <span
                       className="absolute inset-0 rounded-lg"
@@ -88,7 +86,6 @@ function Navbar() {
                     />
                   )}
                   <span className="relative z-10">{link.label}</span>
-                  {/* Animated underline */}
                   <span
                     className={`absolute bottom-0.5 left-4 right-4 h-0.5 rounded-full transition-all duration-300 ${
                       isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
@@ -103,7 +100,6 @@ function Navbar() {
             </NavLink>
           ))}
 
-          {/* ── CTA knop met shimmer ── */}
           <Link
             to="/contact"
             className="btn-shimmer ml-3 relative inline-flex items-center gap-2 text-sm font-bold text-white px-5 py-2.5 rounded-xl transition-all duration-300"
@@ -120,12 +116,10 @@ function Navbar() {
               e.currentTarget.style.boxShadow = '0 4px 18px rgba(37,99,235,0.45), 0 0 0 1px rgba(37,99,235,0.2)'
             }}
           >
-            {/* Glow ring */}
             <span
               className="absolute inset-0 rounded-xl opacity-0 hover:opacity-100 transition-opacity"
               style={{ boxShadow: '0 0 0 3px rgba(37,99,235,0.25)' }}
             />
-            {/* Icon */}
             <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
             </svg>

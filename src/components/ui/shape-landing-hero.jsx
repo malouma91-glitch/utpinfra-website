@@ -97,7 +97,7 @@ function HeroGeometric({
   badge = "IT Infrastructuur Specialist",
   title1 = "Toekomstbestendige",
   title2 = "IT-Infrastructuur",
-  description = "UTPinfra is specialist in complete data-infrastructuren. Denk aan netwerk oplossingen, glasvezel koppelingen, Wi-Fi, beveiliging en toegangscontrole. Wij ontzorgen u volledig.",
+  description = "MK CoreLink Group — drie divisies, één partner. Transport, IT-infrastructuur en beveiliging. Wij ontzorgen u volledig.",
   ctaPrimary = { label: "Vrijblijvend gesprek →", href: "/contact" },
   ctaSecondary = { label: "Onze diensten", href: "/diensten" },
 }) {

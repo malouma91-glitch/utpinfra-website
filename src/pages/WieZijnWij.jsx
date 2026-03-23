@@ -14,7 +14,7 @@ const values = [
   },
   {
     title: 'Innovatie',
-    desc: 'De IT-wereld staat nooit stil. Wij volgen de laatste ontwikkelingen op de voet en implementeren de meest moderne oplossingen.',
+    desc: 'De wereld staat nooit stil. Wij volgen de laatste ontwikkelingen op de voet en implementeren de meest moderne oplossingen.',
     icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>,
   },
 ]
@@ -27,10 +27,10 @@ function WieZijnWij() {
         <div className="absolute inset-0 dot-pattern" />
         <div className="container-main relative z-10">
           <span className="text-blue-400 text-sm font-bold uppercase tracking-widest mb-4 block">
-            <Link to="/" className="hover:text-white transition-colors">Home</Link> / Wie zijn wij
+            <Link to="/" className="hover:text-white transition-colors">Home</Link> / Over ons
           </span>
           <h1 className="text-4xl md:text-5xl font-black font-raleway text-white mb-4">Wie zijn wij?</h1>
-          <p className="text-slate-300 max-w-lg">Maak kennis met het team achter UTPinfra — uw partner in complete IT-infrastructuuroplossingen.</p>
+          <p className="text-slate-300 max-w-lg">Maak kennis met MK CoreLink Group — uw partner in transport, IT-infrastructuur en beveiliging.</p>
         </div>
       </section>
 
@@ -38,33 +38,31 @@ function WieZijnWij() {
       <section className="py-24 bg-white">
         <div className="container-main">
           <div className="grid md:grid-cols-2 gap-16 items-center">
-            {/* Left: text */}
             <div>
               <span className="text-blue-600 text-sm font-bold uppercase tracking-widest mb-3 block">Over ons</span>
               <h2 className="text-3xl font-black font-raleway text-slate-900 mb-6 leading-tight">
-                Uw betrouwbare IT-infrastructuur partner
+                Drie divisies, één betrouwbare partner
               </h2>
               <p className="text-slate-500 leading-relaxed mb-4">
-                UTPinfra is een jonge en dynamische IT-infrastructuur onderneming gevestigd in Nieuwegein. Wij zijn gespecialiseerd in het realiseren van complete data-infrastructuren voor bedrijven in het MKB, maar ook voor grotere organisaties zoals scholen, ziekenhuizen en overheidsinstanties.
+                MK CoreLink Group B.V. is opgericht in 2016 en gevestigd in Bilthoven. Wat begon als een koeriersdienst is uitgegroeid tot een multidisciplinaire groep met drie gespecialiseerde divisies.
               </p>
               <p className="text-slate-500 leading-relaxed mb-4">
-                Onze medewerkers zijn gecertificeerd en hebben jarenlange ervaring in het vakgebied van data-infrastructuur, netwerken en beveiliging. Wij hechten grote waarde aan kwaliteit, betrouwbaarheid en transparantie.
+                <strong className="text-slate-700">MK Transport</strong> verzorgt medische koeriers- en logistieke diensten door heel Nederland. <strong className="text-slate-700">MK Infra</strong> is gespecialiseerd in internet bekabeling, patchkasten en netwerk aanleg. <strong className="text-slate-700">MK Security</strong> levert professionele camerasystemen en pandbeveiliging.
               </p>
               <p className="text-slate-500 leading-relaxed mb-8">
-                Bij UTPinfra staat de klant centraal. Wij luisteren naar uw wensen en behoeften en vertalen die naar concrete, passende oplossingen. Wij werken niet voor u, maar met u — samen zorgen wij voor het beste resultaat.
+                Bij MK CoreLink Group staat de klant centraal. Wij luisteren naar uw wensen en vertalen die naar concrete, passende oplossingen. Wij werken niet voor u, maar met u.
               </p>
               <div className="flex gap-4">
-                <Link to="/contact" className="btn-primary">Contact opnemen →</Link>
+                <Link to="/contact" className="btn-primary">Contact opnemen &rarr;</Link>
                 <Link to="/diensten" className="btn-outline !text-slate-700 !border-slate-300 hover:!border-blue-500 hover:!text-blue-600">Onze diensten</Link>
               </div>
             </div>
 
-            {/* Right: image */}
             <div className="relative hidden md:block">
               <div className="rounded-2xl overflow-hidden shadow-xl h-96">
                 <img
                   src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=800&q=80"
-                  alt="UTPinfra team aan het werk"
+                  alt="MK CoreLink Group team aan het werk"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -76,8 +74,8 @@ function WieZijnWij() {
                   </svg>
                 </div>
                 <div>
-                  <p className="font-black text-slate-900 text-lg leading-none">15+</p>
-                  <p className="text-slate-400 text-xs font-medium mt-0.5">Jaar ervaring</p>
+                  <p className="font-black text-slate-900 text-lg leading-none">2016</p>
+                  <p className="text-slate-400 text-xs font-medium mt-0.5">Opgericht</p>
                 </div>
               </div>
             </div>
@@ -90,10 +88,10 @@ function WieZijnWij() {
         <div className="container-main">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { v: '500+', l: 'Projecten afgerond' },
-              { v: '15+', l: 'Jaar ervaring' },
-              { v: '98%', l: 'Klanttevredenheid' },
-              { v: '24/7', l: 'Service & Support' },
+              { v: '3', l: 'Divisies' },
+              { v: '2016', l: 'Opgericht' },
+              { v: '7+', l: 'Diensten' },
+              { v: '24/7', l: 'Bereikbaar' },
             ].map((s) => (
               <div key={s.l}>
                 <div className="stat-number mb-1">{s.v}</div>
@@ -133,7 +131,7 @@ function WieZijnWij() {
             <div className="rounded-2xl overflow-hidden shadow-xl h-72">
               <img
                 src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=800&q=80"
-                alt="UTPinfra professionals"
+                alt="MK CoreLink Group professionals"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -141,9 +139,9 @@ function WieZijnWij() {
               <span className="text-blue-600 text-sm font-bold uppercase tracking-widest mb-3 block">Ons team</span>
               <h2 className="text-3xl font-black font-raleway text-slate-900 mb-6">Gemotiveerd en vastberaden</h2>
               <p className="text-slate-500 leading-relaxed mb-6">
-                Ons team bestaat uit gemotiveerde en vastberaden professionals met een groot netwerk en jarenlange ervaring. U kunt telefonisch, per mail of via het contactformulier contact met ons opnemen.
+                Ons team bestaat uit gemotiveerde en vastberaden professionals. Of het nu gaat om medisch transport, netwerk aanleg of camerabewaking — wij staan klaar voor u.
               </p>
-              <Link to="/contact" className="btn-primary">Neem contact op →</Link>
+              <Link to="/contact" className="btn-primary">Neem contact op &rarr;</Link>
             </div>
           </div>
         </div>
@@ -157,12 +155,12 @@ function WieZijnWij() {
               <span className="text-blue-600 text-sm font-bold uppercase tracking-widest mb-3 block">Contact</span>
               <h2 className="text-3xl font-black font-raleway text-slate-900 mb-4">Wilt u meer weten?</h2>
               <p className="text-slate-500 leading-relaxed mb-6">
-                Wij staan altijd klaar om uw vragen te beantwoorden en u te voorzien van een vrijblijvend advies. Neem vandaag nog contact met ons op.
+                Wij staan altijd klaar om uw vragen te beantwoorden. Neem vandaag nog contact met ons op voor een vrijblijvend advies.
               </p>
               <div className="space-y-3">
                 {[
-                  { label: 'Telefoon', value: '030 237 4 005', href: 'tel:0302374005' },
-                  { label: 'E-mail', value: 'info@utpinfra.nl', href: 'mailto:info@utpinfra.nl' },
+                  { label: 'Telefoon', value: '06 845 985 78', href: 'tel:0684598578' },
+                  { label: 'E-mail', value: 'mkgroup@corelink.nl', href: 'mailto:mkgroup@corelink.nl' },
                 ].map((c) => (
                   <a key={c.label} href={c.href} className="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-200 hover:border-blue-300 hover:shadow-card transition-all duration-200 group">
                     <div className="w-10 h-10 rounded-lg flex items-center justify-center text-white shrink-0"

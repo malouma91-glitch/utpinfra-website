@@ -2,13 +2,13 @@ import { useState, useRef, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 /* ═══════════════════════════════════════════════════════
-   PERSONA — Daan van den Berg, Adviseur bij UTPinfra
+   PERSONA — Daan van den Berg, Adviseur bij MK CoreLink Group
    Warm, direct, deskundig — behandelt klant als koning
 ═══════════════════════════════════════════════════════ */
 const PERSONA = {
   name: 'Daan',
   full: 'Daan van den Berg',
-  role: 'Adviseur bij UTPinfra',
+  role: 'Adviseur bij MK CoreLink Group',
   // Realistic professional Dutch male from Unsplash
   photo: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=100&h=100&q=80',
 }
@@ -59,10 +59,10 @@ function buildResponse(intent, _input, ctx) {
     case 'greeting':
       return {
         text: pick([
-          `Hé, hallo${name}! 👋 Daan hier, adviseur bij UTPinfra. Fijn dat u even langssurft. Waarmee kan ik u vandaag helpen?`,
-          `Hallo${name}! Welkom bij UTPinfra. Ik ben Daan — zegt u het maar, wat kan ik voor u doen?`,
+          `Hé, hallo${name}! 👋 Daan hier, adviseur bij MK CoreLink Group. Fijn dat u even langssurft. Waarmee kan ik u vandaag helpen?`,
+          `Hallo${name}! Welkom bij MK CoreLink Group. Ik ben Daan — zegt u het maar, wat kan ik voor u doen?`,
           `Goeiedag${name}! Daan van den Berg hier. Leuk dat u contact opneemt — waar kan ik u mee van dienst zijn?`,
-          `Hoi${name}! Daan van UTPinfra hier. Fijn dat u er bent. Heeft u een vraag over ons aanbod, of is er iets specifieks waar ik u mee kan helpen?`,
+          `Hoi${name}! Daan van MK CoreLink Group hier. Fijn dat u er bent. Heeft u een vraag over ons aanbod, of is er iets specifieks waar ik u mee kan helpen?`,
         ]),
         suggestions: ['Welke diensten bieden jullie?', 'Wat kosten jullie diensten?', 'Ik wil een offerte'],
       }
@@ -70,10 +70,10 @@ function buildResponse(intent, _input, ctx) {
     case 'whoami':
       return {
         text: pick([
-          `Haha, goeie vraag! Ik ben Daan van den Berg, adviseur bij UTPinfra. Ik help klanten dagelijks met vragen over netwerken, glasvezel, Wi-Fi, camerabeveiliging — alles op het gebied van IT-infrastructuur.\n\nKan ik ook u ergens mee helpen? 😄`,
-          `Ik ben Daan! Adviseur bij UTPinfra in Nieuwegein. Mijn werk is om klanten te helpen de juiste IT-infrastructuurkeuzes te maken — van advies tot oplevering. Wat kan ik voor u doen?`,
+          `Haha, goeie vraag! Ik ben Daan van den Berg, adviseur bij MK CoreLink Group. Ik help klanten dagelijks met vragen over netwerken, glasvezel, Wi-Fi, camerabeveiliging — alles op het gebied van IT-infrastructuur.\n\nKan ik ook u ergens mee helpen? 😄`,
+          `Ik ben Daan! Adviseur bij MK CoreLink Group in Bilthoven. Mijn werk is om klanten te helpen de juiste IT-infrastructuurkeuzes te maken — van advies tot oplevering. Wat kan ik voor u doen?`,
         ]),
-        suggestions: ['Wat doet UTPinfra?', 'Offerte aanvragen', 'Hoe bereik ik jullie?'],
+        suggestions: ['Wat doet MK CoreLink Group?', 'Offerte aanvragen', 'Hoe bereik ik jullie?'],
       }
 
     case 'smalltalk':
@@ -84,7 +84,7 @@ function buildResponse(intent, _input, ctx) {
           `Goed hoor — druk maar lekker! Klanten zoals u maken het werk de moeite waard. Zegt u het maar, wat speelt er bij u?`,
           `Heel goed! Net een installatie afgerond in Utrecht, nu even rustig. Dus perfect moment om u te helpen. Wat is uw vraag? 😊`,
         ]),
-        suggestions: ['Ik zoek een netwerkoplossing', 'Wat doet UTPinfra precies?', 'Ik wil een offerte'],
+        suggestions: ['Ik zoek een netwerkoplossing', 'Wat doet MK CoreLink Group precies?', 'Ik wil een offerte'],
       }
 
     case 'thanks':
@@ -102,7 +102,7 @@ function buildResponse(intent, _input, ctx) {
       return {
         text: pick([
           `Tot ziens${name}! Fijn gesprek gehad. Als u ooit vragen heeft, weet u ons te vinden. Succes! 👋`,
-          `Dag${name}! Prettige dag nog. En mocht er iets zijn — **030 237 4 005** of **info@utpinfra.nl**. We helpen u graag. 😊`,
+          `Dag${name}! Prettige dag nog. En mocht er iets zijn — **06 845 985 78** of **mkgroup@corelink.nl**. We helpen u graag. 😊`,
           `Doei${name}! Hopelijk tot snel. Wij staan altijd voor u klaar. Fijne dag verder! ☀️`,
         ]),
         suggestions: [],
@@ -111,10 +111,10 @@ function buildResponse(intent, _input, ctx) {
     case 'services':
       return {
         text: pick([
-          `Zeker! UTPinfra is uw totaalpartner voor IT-infrastructuur. Alles wat data van A naar B brengt — dat doen wij.\n\nOns aanbod:\n• **Gestructureerde bekabeling** (Cat6A, Cat7, glasvezel)\n• **Netwerken** (switches, firewalls, VLAN)\n• **Wi-Fi** (site survey, Ubiquiti UniFi)\n• **Camerabeveiliging** (Hikvision, AVG-compliant)\n• **Straalverbindingen** (PTP/PTMP, Ubiquiti AirMax)\n• **Toegangscontrole** (Roger, AJAX)\n\nVan advies tot installatie én nazorg. Wat spreekt u het meeste aan?`,
-          `Goede vraag! Wij doen eigenlijk alles op het gebied van IT-infrastructuur — van een simpele kabeltrekking tot een complete netwerkinstallatie voor een heel bedrijfspand.\n\nDe kern van ons werk: netwerken, Wi-Fi, glasvezel, camerabeveiliging en bekabeling. Altijd inclusief advies, installatie en oplevering met testrapportage.\n\nWat is uw situatie? Dan denk ik graag mee.`,
+          `Zeker! MK CoreLink Group werkt vanuit **drie divisies**:\n\n🚚 **MK Transport**\n• Medische koeriersdiensten\n• Logistiek & distributie\n\n🌐 **MK Infra**\n• Internet bekabeling (CAT6A, glasvezel)\n• Patchkasten & switches\n• Netwerk aanleg (Wi-Fi, VLAN, firewalls)\n\n🎥 **MK Security**\n• IP-camerasystemen (Hikvision)\n• Beveiliging van panden (AJAX, Roger)\n\nWat spreekt u het meeste aan?`,
+          `Goede vraag! Wij werken vanuit drie divisies. **MK Transport** voor medisch vervoer en logistiek, **MK Infra** voor IT-infrastructuur en netwerken, en **MK Security** voor camerabewaking en pandbeveiliging.\n\nElke divisie heeft zijn eigen specialisten. Wat is uw situatie? Dan verwijs ik u naar de juiste afdeling.`,
         ]),
-        suggestions: ['Glasvezel', 'Wi-Fi oplossing', 'Netwerk opzetten', 'Camerabeveiliging'],
+        suggestions: ['MK Transport', 'MK Infra', 'MK Security', 'Offerte aanvragen'],
       }
 
     case 'price':
@@ -130,10 +130,10 @@ function buildResponse(intent, _input, ctx) {
     case 'quote':
       return {
         text: pick([
-          `Dat regel ik graag voor u! Een offerte is altijd vrijblijvend — u zit nergens aan vast. 👍\n\nNormaal gesproken plannen wij eerst een kort adviesgesprek op locatie in — duurt een half uurtje. Dan zien wij precies wat u nodig heeft en geven wij een eerlijke prijs.\n\nBel ons op **030 237 4 005** of mail naar **info@utpinfra.nl**. Of vraag het direct aan via onze website!`,
-          `Zeker, dat is de beste stap! Een offerte bij ons is gratis en volledig vrijblijvend.\n\nWij doen het liefst een korte rondleiding bij u op locatie — zo weet u zeker dat de offerte klopt met uw situatie. Geen standaard prijslijst die misschien niet past.\n\nMail naar **info@utpinfra.nl** of bel **030 237 4 005** — dan plannen wij iets in. 📅`,
+          `Dat regel ik graag voor u! Een offerte is altijd vrijblijvend — u zit nergens aan vast. 👍\n\nNormaal gesproken plannen wij eerst een kort adviesgesprek op locatie in — duurt een half uurtje. Dan zien wij precies wat u nodig heeft en geven wij een eerlijke prijs.\n\nBel ons op **06 845 985 78** of mail naar **mkgroup@corelink.nl**. Of vraag het direct aan via onze website!`,
+          `Zeker, dat is de beste stap! Een offerte bij ons is gratis en volledig vrijblijvend.\n\nWij doen het liefst een korte rondleiding bij u op locatie — zo weet u zeker dat de offerte klopt met uw situatie. Geen standaard prijslijst die misschien niet past.\n\nMail naar **mkgroup@corelink.nl** of bel **06 845 985 78** — dan plannen wij iets in. 📅`,
         ]),
-        suggestions: ['Offerte via website', '030 237 4 005 bellen', 'info@utpinfra.nl mailen'],
+        suggestions: ['Offerte via website', '06 845 985 78 bellen', 'mkgroup@corelink.nl mailen'],
       }
 
     case 'fiber':
@@ -193,10 +193,10 @@ function buildResponse(intent, _input, ctx) {
     case 'area':
       return {
         text: pick([
-          `Wij werken door heel Nederland! 🇳🇱 Ons kantoor zit in **Nieuwegein** (Utrecht), maar onze monteurs zijn dagelijks onderweg — van Groningen tot Zeeland.\n\nReiskosten communiceren wij altijd transparant vooraf. Geen verrassingen achteraf.\n\nIn welke regio zit u? Dan weet ik of er iemand uit de buurt kan komen voor een snel adviesgesprek.`,
+          `Wij werken door heel Nederland! 🇳🇱 Ons kantoor zit in **Bilthoven** (Utrecht), maar onze monteurs zijn dagelijks onderweg — van Groningen tot Zeeland.\n\nReiskosten communiceren wij altijd transparant vooraf. Geen verrassingen achteraf.\n\nIn welke regio zit u? Dan weet ik of er iemand uit de buurt kan komen voor een snel adviesgesprek.`,
           `Heel Nederland, ja! Wij werken dagelijks in Amsterdam, Rotterdam, Den Haag, Utrecht, Eindhoven — maar ook in kleinere gemeenten en industrieterreinen.\n\nVoor grotere projecten werken wij ook samen met lokale aannemers. Zo kunnen wij altijd snel en efficiënt ter plaatse zijn.\n\nWaar zit u?`,
         ]),
-        suggestions: ['Noord-Holland', 'Utrecht / Nieuwegein', 'Zuid-Holland', 'Andere regio'],
+        suggestions: ['Noord-Holland', 'Utrecht / Bilthoven', 'Zuid-Holland', 'Andere regio'],
       }
 
     case 'timeline':
@@ -274,10 +274,10 @@ function buildResponse(intent, _input, ctx) {
     case 'contact':
       return {
         text: pick([
-          `U kunt ons altijd bereiken! 📞\n\n• **Telefoon**: 030 237 4 005 — ma t/m vr, 08:00–17:30\n• **E-mail**: info@utpinfra.nl — reactie binnen één werkdag\n• **Adres**: Nieuwegein (Utrecht) — bezoek op afspraak\n\nOf zal ik een terugbelverzoek voor u doorzetten? Dan belt een van onze adviseurs u vandaag nog terug.`,
-          `Bereikbaar zijn is voor ons heel belangrijk. U kunt ons bellen op **030 237 4 005**, mailen naar **info@utpinfra.nl**, of het contactformulier invullen op onze website.\n\nWilt u liever dat wij u bellen? Geef het aan — dan zorg ik dat een collega u zo snel mogelijk terugbelt. Wij reageren altijd dezelfde dag.`,
+          `U kunt ons altijd bereiken! 📞\n\n• **Telefoon**: 06 845 985 78 — ma t/m vr, 08:00–17:30\n• **E-mail**: mkgroup@corelink.nl — reactie binnen één werkdag\n• **Adres**: Bilthoven (Utrecht) — bezoek op afspraak\n\nOf zal ik een terugbelverzoek voor u doorzetten? Dan belt een van onze adviseurs u vandaag nog terug.`,
+          `Bereikbaar zijn is voor ons heel belangrijk. U kunt ons bellen op **06 845 985 78**, mailen naar **mkgroup@corelink.nl**, of het contactformulier invullen op onze website.\n\nWilt u liever dat wij u bellen? Geef het aan — dan zorg ik dat een collega u zo snel mogelijk terugbelt. Wij reageren altijd dezelfde dag.`,
         ]),
-        suggestions: ['030 237 4 005', 'info@utpinfra.nl', 'Contactformulier openen'],
+        suggestions: ['06 845 985 78', 'mkgroup@corelink.nl', 'Contactformulier openen'],
       }
 
     case 'references':
@@ -303,8 +303,8 @@ function buildResponse(intent, _input, ctx) {
       if (ctx.messageCount >= 3) {
         return {
           text: pick([
-            `Hmm, dat is een vraag waar ik even over moet nadenken. 😅 Eerlijk gezegd kan ik dit het beste doorspelen naar een collega die hier meer van weet.\n\nZal ik zorgen dat iemand u terugbelt? Of bel zelf even: **030 237 4 005**. Dan helpen wij u direct verder.`,
-            `Goede vraag — maar ik wil u geen half antwoord geven. Dit soort vragen beantwoorden wij het liefst persoonlijk.\n\nMag ik u doorverwijzen? **030 237 4 005** of **info@utpinfra.nl** — dan koppelen wij de juiste specialist aan u.`,
+            `Hmm, dat is een vraag waar ik even over moet nadenken. 😅 Eerlijk gezegd kan ik dit het beste doorspelen naar een collega die hier meer van weet.\n\nZal ik zorgen dat iemand u terugbelt? Of bel zelf even: **06 845 985 78**. Dan helpen wij u direct verder.`,
+            `Goede vraag — maar ik wil u geen half antwoord geven. Dit soort vragen beantwoorden wij het liefst persoonlijk.\n\nMag ik u doorverwijzen? **06 845 985 78** of **mkgroup@corelink.nl** — dan koppelen wij de juiste specialist aan u.`,
           ]),
           suggestions: ['Terugbelverzoek', 'Ik stel een andere vraag', 'Offerte aanvragen'],
         }
@@ -376,8 +376,8 @@ export default function ChatBot() {
     {
       id: 1,
       from: 'bot',
-      text: `Hallo! 👋 U spreekt met **Daan van den Berg**, adviseur bij UTPinfra. Fijn dat u contact opneemt!\n\nWaarmee kan ik u vandaag helpen? Ik sta voor alle vragen klaar — geen vraag is te klein.`,
-      suggestions: ['Welke diensten bieden jullie?', 'Ik wil een offerte', 'Wat zijn de kosten?'],
+      text: `Hallo! 👋 U spreekt met **Daan van den Berg**, adviseur bij MK CoreLink Group. Fijn dat u contact opneemt!\n\nWij helpen u met **transport**, **IT-infrastructuur** en **beveiliging**. Waarmee kan ik u vandaag helpen?`,
+      suggestions: ['Welke divisies hebben jullie?', 'Ik wil een offerte', 'Wat zijn de kosten?'],
       time: new Date(),
     },
   ])
@@ -572,7 +572,7 @@ export default function ChatBot() {
               </div>
 
               <div className="shrink-0 text-right">
-                <p className="text-[9px] text-slate-500">📞 030 237 4 005</p>
+                <p className="text-[9px] text-slate-500">📞 06 845 985 78</p>
                 <p className="text-[9px] text-slate-500 mt-0.5">Ma–Vr 08:00–17:30</p>
               </div>
 
@@ -733,7 +733,7 @@ export default function ChatBot() {
               className="shrink-0 text-center py-1.5"
               style={{ background: '#060e1e', borderTop: '1px solid rgba(255,255,255,0.03)' }}
             >
-              <p className="text-[10px] text-slate-700">Gesprek met Daan van den Berg · UTPinfra · 030 237 4 005</p>
+              <p className="text-[10px] text-slate-700">Gesprek met Daan van den Berg · MK CoreLink Group · 06 845 985 78</p>
             </div>
           </motion.div>
         )}

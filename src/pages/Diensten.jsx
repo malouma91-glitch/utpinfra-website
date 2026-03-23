@@ -1,37 +1,59 @@
 import { Link } from 'react-router-dom'
-import { services } from '../data/services'
+import { divisions } from '../data/services'
 import ContactForm from '../components/ContactForm'
 
-function ServiceDetail({ service, index }) {
-  const isEven = index % 2 === 0
-  return (
-    <div id={`dienst-${service.id}`} className={`py-20 ${isEven ? 'bg-white' : 'bg-slate-50'}`}>
-      <div className="container-main">
-        <div className={`grid md:grid-cols-2 gap-14 items-center ${!isEven ? 'md:flex-row-reverse' : ''}`}>
-          {/* Image */}
-          <div className={isEven ? '' : 'md:order-2'}>
-            <div className="rounded-2xl overflow-hidden shadow-xl h-72 relative">
-              <img
-                src={service.image}
-                alt={service.title}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(10,22,40,0.3), transparent)' }} />
-            </div>
-          </div>
+const divColors = { transport: '#10B981', infra: '#2563EB', security: '#EF4444' }
 
-          {/* Content */}
-          <div className={isEven ? '' : 'md:order-1'}>
-            <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl text-white mb-5"
-              style={{ background: 'linear-gradient(135deg,#2563EB,#06B6D4)' }}>
-              <span className="text-xs font-black">0{service.id}</span>
-            </div>
-            <h2 className="text-2xl md:text-3xl font-black font-raleway text-slate-900 mb-4">{service.title}</h2>
-            <p className="text-slate-500 leading-relaxed mb-6">{service.longDesc}</p>
-            <Link to="/contact" className="btn-primary">
-              Meer informatie →
-            </Link>
+function DivisionBlock({ division }) {
+  const color = divColors[division.id]
+  return (
+    <div id={`divisie-${division.id}`} className="py-20">
+      <div className="container-main">
+        {/* Division header */}
+        <div className="flex items-center gap-4 mb-10">
+          <div className="w-1.5 h-12 rounded-full" style={{ background: color }} />
+          <div>
+            <h2 className="text-3xl font-black font-raleway text-slate-900">{division.name}</h2>
+            <p className="text-sm font-semibold uppercase tracking-widest" style={{ color }}>{division.tagline}</p>
           </div>
+        </div>
+        <p className="text-slate-500 leading-relaxed max-w-2xl mb-12">{division.description}</p>
+
+        {/* Services */}
+        <div className="space-y-16">
+          {division.services.map((service, i) => {
+            const isEven = i % 2 === 0
+            return (
+              <div key={service.id} className={`grid md:grid-cols-2 gap-14 items-center`}>
+                <div className={isEven ? '' : 'md:order-2'}>
+                  <div className="rounded-2xl overflow-hidden shadow-xl h-72 relative">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(10,22,40,0.3), transparent)' }} />
+                    {/* Division badge */}
+                    <div className="absolute top-4 left-4 px-3 py-1 rounded-full text-white text-xs font-bold" style={{ background: color }}>
+                      {division.name}
+                    </div>
+                  </div>
+                </div>
+                <div className={isEven ? '' : 'md:order-1'}>
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl text-white mb-5"
+                    style={{ background: `linear-gradient(135deg, ${color}, ${color}cc)` }}>
+                    <span className="text-xs font-black">0{service.id}</span>
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-black font-raleway text-slate-900 mb-4">{service.title}</h3>
+                  <p className="text-slate-500 leading-relaxed mb-6">{service.longDesc}</p>
+                  <Link to="/contact" className="inline-flex items-center gap-2 text-sm font-bold text-white px-5 py-2.5 rounded-xl transition-all duration-300 hover:-translate-y-0.5"
+                    style={{ background: `linear-gradient(135deg, ${color}, ${color}cc)`, boxShadow: `0 4px 18px ${color}50` }}>
+                    Meer informatie &rarr;
+                  </Link>
+                </div>
+              </div>
+            )
+          })}
         </div>
       </div>
     </div>
@@ -50,28 +72,35 @@ function Diensten() {
           </span>
           <h1 className="text-4xl md:text-5xl font-black font-raleway text-white mb-4">Onze diensten</h1>
           <p className="text-slate-300 max-w-xl leading-relaxed">
-            Complete IT-infrastructuuroplossingen — van glasvezel en bekabeling tot Wi-Fi, beveiliging en netwerk. UTPinfra is uw totaalpartner.
+            Drie divisies, zeven diensten. Van medisch transport tot IT-infrastructuur en beveiliging — MK CoreLink Group is uw totaalpartner.
           </p>
         </div>
       </section>
 
-      {/* Quick links */}
+      {/* Quick links per divisie */}
       <section className="bg-white py-6 border-b border-slate-200 sticky top-[108px] z-40 shadow-sm">
         <div className="container-main">
           <div className="flex flex-wrap gap-2 justify-center">
-            {services.map((s) => (
-              <a key={s.id} href={`#dienst-${s.id}`}
-                className="text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-blue-600 hover:text-white px-4 py-2 rounded-full transition-all duration-200">
-                {s.title}
+            {divisions.map((d) => (
+              <a key={d.id} href={`#divisie-${d.id}`}
+                className="flex items-center gap-2 text-xs font-semibold text-slate-600 bg-slate-100 hover:text-white px-4 py-2 rounded-full transition-all duration-200"
+                style={{ '--hover-bg': divColors[d.id] }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = divColors[d.id]; e.currentTarget.style.color = 'white' }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = ''; e.currentTarget.style.color = '' }}
+              >
+                <span className="w-2 h-2 rounded-full" style={{ background: divColors[d.id] }} />
+                {d.name}
               </a>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Service details */}
-      {services.map((service, i) => (
-        <ServiceDetail key={service.id} service={service} index={i} />
+      {/* Divisie blokken */}
+      {divisions.map((div, i) => (
+        <div key={div.id} className={i % 2 === 0 ? 'bg-white' : 'bg-slate-50'}>
+          <DivisionBlock division={div} />
+        </div>
       ))}
 
       {/* CTA */}
@@ -86,8 +115,8 @@ function Diensten() {
               </p>
               <div className="bg-white rounded-2xl p-6 border border-slate-200 space-y-3">
                 {[
-                  { label: 'Telefoon', val: '030 237 4 005', href: 'tel:0302374005' },
-                  { label: 'E-mail', val: 'info@utpinfra.nl', href: 'mailto:info@utpinfra.nl' },
+                  { label: 'Telefoon', val: '06 845 985 78', href: 'tel:0684598578' },
+                  { label: 'E-mail', val: 'mkgroup@corelink.nl', href: 'mailto:mkgroup@corelink.nl' },
                 ].map((c) => (
                   <a key={c.label} href={c.href} className="flex items-center gap-3 text-slate-600 hover:text-blue-600 transition-colors">
                     <span className="text-blue-600 font-bold text-sm w-16">{c.label}:</span>
