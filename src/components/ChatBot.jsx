@@ -102,7 +102,7 @@ function buildResponse(intent, _input, ctx) {
       return {
         text: pick([
           `Tot ziens${name}! Fijn gesprek gehad. Als u ooit vragen heeft, weet u ons te vinden. Succes! 👋`,
-          `Dag${name}! Prettige dag nog. En mocht er iets zijn — **06 845 985 78** of **mkgroup@corelink.nl**. We helpen u graag. 😊`,
+          `Dag${name}! Prettige dag nog. En mocht er iets zijn — **06 148 909 15** of **mkgroup@corelink.nl**. We helpen u graag. 😊`,
           `Doei${name}! Hopelijk tot snel. Wij staan altijd voor u klaar. Fijne dag verder! ☀️`,
         ]),
         suggestions: [],
@@ -130,10 +130,10 @@ function buildResponse(intent, _input, ctx) {
     case 'quote':
       return {
         text: pick([
-          `Dat regel ik graag voor u! Een offerte is altijd vrijblijvend — u zit nergens aan vast. 👍\n\nNormaal gesproken plannen wij eerst een kort adviesgesprek op locatie in — duurt een half uurtje. Dan zien wij precies wat u nodig heeft en geven wij een eerlijke prijs.\n\nBel ons op **06 845 985 78** of mail naar **mkgroup@corelink.nl**. Of vraag het direct aan via onze website!`,
-          `Zeker, dat is de beste stap! Een offerte bij ons is gratis en volledig vrijblijvend.\n\nWij doen het liefst een korte rondleiding bij u op locatie — zo weet u zeker dat de offerte klopt met uw situatie. Geen standaard prijslijst die misschien niet past.\n\nMail naar **mkgroup@corelink.nl** of bel **06 845 985 78** — dan plannen wij iets in. 📅`,
+          `Dat regel ik graag voor u! Een offerte is altijd vrijblijvend — u zit nergens aan vast. 👍\n\nNormaal gesproken plannen wij eerst een kort adviesgesprek op locatie in — duurt een half uurtje. Dan zien wij precies wat u nodig heeft en geven wij een eerlijke prijs.\n\nBel ons op **06 148 909 15** of mail naar **mkgroup@corelink.nl**. Of vraag het direct aan via onze website!`,
+          `Zeker, dat is de beste stap! Een offerte bij ons is gratis en volledig vrijblijvend.\n\nWij doen het liefst een korte rondleiding bij u op locatie — zo weet u zeker dat de offerte klopt met uw situatie. Geen standaard prijslijst die misschien niet past.\n\nMail naar **mkgroup@corelink.nl** of bel **06 148 909 15** — dan plannen wij iets in. 📅`,
         ]),
-        suggestions: ['Offerte via website', '06 845 985 78 bellen', 'mkgroup@corelink.nl mailen'],
+        suggestions: ['Offerte via website', '06 148 909 15 bellen', 'mkgroup@corelink.nl mailen'],
       }
 
     case 'fiber':
@@ -274,10 +274,10 @@ function buildResponse(intent, _input, ctx) {
     case 'contact':
       return {
         text: pick([
-          `U kunt ons altijd bereiken! 📞\n\n• **Telefoon**: 06 845 985 78 — ma t/m vr, 08:00–17:30\n• **E-mail**: mkgroup@corelink.nl — reactie binnen één werkdag\n• **Adres**: Bilthoven (Utrecht) — bezoek op afspraak\n\nOf zal ik een terugbelverzoek voor u doorzetten? Dan belt een van onze adviseurs u vandaag nog terug.`,
-          `Bereikbaar zijn is voor ons heel belangrijk. U kunt ons bellen op **06 845 985 78**, mailen naar **mkgroup@corelink.nl**, of het contactformulier invullen op onze website.\n\nWilt u liever dat wij u bellen? Geef het aan — dan zorg ik dat een collega u zo snel mogelijk terugbelt. Wij reageren altijd dezelfde dag.`,
+          `U kunt ons altijd bereiken! 📞\n\n• **Telefoon**: 06 148 909 15 — ma t/m vr, 08:00–17:30\n• **E-mail**: mkgroup@corelink.nl — reactie binnen één werkdag\n• **Adres**: Bilthoven (Utrecht) — bezoek op afspraak\n\nOf zal ik een terugbelverzoek voor u doorzetten? Dan belt een van onze adviseurs u vandaag nog terug.`,
+          `Bereikbaar zijn is voor ons heel belangrijk. U kunt ons bellen op **06 148 909 15**, mailen naar **mkgroup@corelink.nl**, of het contactformulier invullen op onze website.\n\nWilt u liever dat wij u bellen? Geef het aan — dan zorg ik dat een collega u zo snel mogelijk terugbelt. Wij reageren altijd dezelfde dag.`,
         ]),
-        suggestions: ['06 845 985 78', 'mkgroup@corelink.nl', 'Contactformulier openen'],
+        suggestions: ['06 148 909 15', 'mkgroup@corelink.nl', 'Contactformulier openen'],
       }
 
     case 'references':
@@ -303,8 +303,8 @@ function buildResponse(intent, _input, ctx) {
       if (ctx.messageCount >= 3) {
         return {
           text: pick([
-            `Hmm, dat is een vraag waar ik even over moet nadenken. 😅 Eerlijk gezegd kan ik dit het beste doorspelen naar een collega die hier meer van weet.\n\nZal ik zorgen dat iemand u terugbelt? Of bel zelf even: **06 845 985 78**. Dan helpen wij u direct verder.`,
-            `Goede vraag — maar ik wil u geen half antwoord geven. Dit soort vragen beantwoorden wij het liefst persoonlijk.\n\nMag ik u doorverwijzen? **06 845 985 78** of **mkgroup@corelink.nl** — dan koppelen wij de juiste specialist aan u.`,
+            `Hmm, dat is een vraag waar ik even over moet nadenken. 😅 Eerlijk gezegd kan ik dit het beste doorspelen naar een collega die hier meer van weet.\n\nZal ik zorgen dat iemand u terugbelt? Of bel zelf even: **06 148 909 15**. Dan helpen wij u direct verder.`,
+            `Goede vraag — maar ik wil u geen half antwoord geven. Dit soort vragen beantwoorden wij het liefst persoonlijk.\n\nMag ik u doorverwijzen? **06 148 909 15** of **mkgroup@corelink.nl** — dan koppelen wij de juiste specialist aan u.`,
           ]),
           suggestions: ['Terugbelverzoek', 'Ik stel een andere vraag', 'Offerte aanvragen'],
         }
@@ -384,6 +384,7 @@ export default function ChatBot() {
   const [input, setInput] = useState('')
   const [typing, setTyping] = useState(false)
   const [unread, setUnread] = useState(1)
+  const openRef = useRef(false)
   const bottomRef = useRef(null)
   const inputRef = useRef(null)
   const timerRef = useRef(null)
@@ -400,6 +401,7 @@ export default function ChatBot() {
   }, [])
 
   useEffect(() => {
+    openRef.current = open
     if (open) {
       setUnread(0)
       const t = setTimeout(() => inputRef.current?.focus(), 300)
@@ -449,6 +451,9 @@ export default function ChatBot() {
           time: new Date(),
         },
       ])
+      if (!openRef.current) {
+        setUnread((n) => n + 1)
+      }
     }, delay)
   }, [])
 
@@ -572,7 +577,7 @@ export default function ChatBot() {
               </div>
 
               <div className="shrink-0 text-right">
-                <p className="text-[9px] text-slate-500">📞 06 845 985 78</p>
+                <p className="text-[9px] text-slate-500">📞 06 148 909 15</p>
                 <p className="text-[9px] text-slate-500 mt-0.5">Ma–Vr 08:00–17:30</p>
               </div>
 
@@ -733,7 +738,7 @@ export default function ChatBot() {
               className="shrink-0 text-center py-1.5"
               style={{ background: '#060e1e', borderTop: '1px solid rgba(255,255,255,0.03)' }}
             >
-              <p className="text-[10px] text-slate-700">Gesprek met Daan van den Berg · MK CoreLink Group · 06 845 985 78</p>
+              <p className="text-[10px] text-slate-700">Gesprek met Daan van den Berg · MK CoreLink Group · 06 148 909 15</p>
             </div>
           </motion.div>
         )}

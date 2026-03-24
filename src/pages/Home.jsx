@@ -237,7 +237,7 @@ function ContactSection() {
             </div>
             <div className="space-y-4">
               {[
-                { icon: '\u{1F4DE}', label: 'Telefoon', value: '06 845 985 78', href: 'tel:0684598578' },
+                { icon: '\u{1F4DE}', label: 'Telefoon', value: '06 148 909 15', href: 'tel:0614890915' },
                 { icon: '\u{2709}\u{FE0F}', label: 'E-mail',   value: 'mkgroup@corelink.nl', href: 'mailto:mkgroup@corelink.nl' },
               ].map((c) => (
                 <a key={c.label} href={c.href} className="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-200 hover:border-blue-300 hover:shadow-card transition-all duration-200 group">

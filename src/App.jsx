@@ -5,6 +5,7 @@ import WieZijnWij from './pages/WieZijnWij'
 import Diensten from './pages/Diensten'
 import Referenties from './pages/Referenties'
 import Contact from './pages/Contact'
+import NotFound from './pages/NotFound'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="diensten" element={<Diensten />} />
           <Route path="referenties" element={<Referenties />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>

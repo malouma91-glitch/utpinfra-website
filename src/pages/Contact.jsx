@@ -4,8 +4,8 @@ import ContactForm from '../components/ContactForm'
 const contactInfo = [
   {
     label: 'Telefoon',
-    value: '06 845 985 78',
-    href: 'tel:0684598578',
+    value: '06 148 909 15',
+    href: 'tel:0614890915',
     icon: <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>,
   },
   {
@@ -16,7 +16,7 @@ const contactInfo = [
   },
   {
     label: 'Adres',
-    value: 'Weegschaal 21, 3721WL Bilthoven',
+    value: 'Sterrenhof 10, 3723WR Bilthoven',
     href: null,
     icon: <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>,
   },
@@ -99,25 +99,29 @@ function Contact() {
       <section className="bg-slate-50 py-16 border-t border-slate-200">
         <div className="container-main">
           <h3 className="text-xl font-black font-raleway text-slate-900 mb-6 text-center">Onze locatie</h3>
-          <div className="rounded-2xl overflow-hidden shadow-lg h-64 relative bg-slate-200">
-            <img
-              src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1200&q=80"
-              alt="Bilthoven locatie"
-              className="w-full h-full object-cover opacity-60"
+          <div className="rounded-2xl overflow-hidden shadow-lg h-80 border border-slate-200">
+            <iframe
+              title="MK CoreLink Group locatie — Sterrenhof 10, Bilthoven"
+              src="https://maps.google.com/maps?q=Sterrenhof+10,+3723WR+Bilthoven,+Nederland&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
             />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="bg-white rounded-xl shadow-xl px-6 py-4 text-center">
-                <div className="w-10 h-10 rounded-full mx-auto mb-2 flex items-center justify-center text-white"
-                  style={{ background: 'linear-gradient(135deg,#2563EB,#06B6D4)' }}>
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                  </svg>
-                </div>
-                <p className="font-black text-slate-900 text-sm">MK CoreLink Group</p>
-                <p className="text-slate-500 text-xs">Weegschaal 21, Bilthoven</p>
-              </div>
-            </div>
           </div>
+          <p className="text-center text-slate-500 text-sm mt-3">
+            Sterrenhof 10, 3723WR Bilthoven &mdash;{' '}
+            <a
+              href="https://maps.google.com/?q=Sterrenhof+10,+3723WR+Bilthoven"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:underline"
+            >
+              Open in Google Maps
+            </a>
+          </p>
         </div>
       </section>
     </div>

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import ContactForm from '../components/ContactForm'
+import { team } from '../data/team'
 
 const values = [
   {
@@ -124,25 +125,71 @@ function WieZijnWij() {
         </div>
       </section>
 
-      {/* Team photo */}
+      {/* Team members */}
       <section className="py-24 bg-white">
         <div className="container-main">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div className="rounded-2xl overflow-hidden shadow-xl h-72">
-              <img
-                src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=800&q=80"
-                alt="MK CoreLink Group professionals"
-                className="w-full h-full object-cover"
-              />
+          <div className="text-center mb-14">
+            <span className="text-blue-600 text-sm font-bold uppercase tracking-widest mb-3 block">Ons team</span>
+            <h2 className="text-3xl font-black font-raleway text-slate-900 mb-4">Maak kennis met onze professionals</h2>
+            <p className="text-slate-500 max-w-xl mx-auto">
+              Ons team bestaat uit gemotiveerde en gecertificeerde professionals — elk specialist in hun vakgebied.
+            </p>
+          </div>
+
+          {Object.values(team).map((division) => (
+            <div key={division.division} className="mb-16">
+              {/* Divisie header */}
+              <div className="flex items-center gap-3 mb-8">
+                <span className="w-3 h-3 rounded-full shrink-0" style={{ background: division.color }} />
+                <h3 className="text-xl font-black font-raleway text-slate-900">{division.division}</h3>
+                <div className="flex-1 h-px bg-slate-200 ml-2" />
+              </div>
+
+              {/* Teamleden */}
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                {division.members.map((member) => (
+                  <div key={member.name} className="bg-white rounded-2xl border border-slate-200 shadow-card hover:shadow-card-hover hover:border-blue-200 transition-all duration-300 overflow-hidden flex flex-col md:flex-row">
+                    <div className="w-full md:w-40 shrink-0 h-48 md:h-auto overflow-hidden">
+                      <img
+                        src={member.photo}
+                        alt={member.name}
+                        className="w-full h-full object-cover object-top"
+                      />
+                    </div>
+                    <div className="p-6 flex flex-col justify-between">
+                      <div>
+                        <p className="font-black text-slate-900 text-lg leading-tight">{member.name}</p>
+                        <p className="text-sm font-semibold mb-3" style={{ color: division.color }}>{member.role}</p>
+                        <p className="text-slate-500 text-sm leading-relaxed mb-4">{member.bio}</p>
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {member.specialisaties.map((s) => (
+                          <span key={s} className="text-xs px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 font-medium">
+                            {s}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Certificeringen */}
+              <div className="bg-slate-50 rounded-xl border border-slate-200 p-5">
+                <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-3">Certificeringen {division.division}</p>
+                <div className="flex flex-wrap gap-2">
+                  {division.certifications.map((cert) => (
+                    <span key={cert} className="text-xs px-3 py-1.5 rounded-full font-semibold text-white" style={{ background: division.color }}>
+                      {cert}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
-            <div>
-              <span className="text-blue-600 text-sm font-bold uppercase tracking-widest mb-3 block">Ons team</span>
-              <h2 className="text-3xl font-black font-raleway text-slate-900 mb-6">Gemotiveerd en vastberaden</h2>
-              <p className="text-slate-500 leading-relaxed mb-6">
-                Ons team bestaat uit gemotiveerde en vastberaden professionals. Of het nu gaat om medisch transport, netwerk aanleg of camerabewaking — wij staan klaar voor u.
-              </p>
-              <Link to="/contact" className="btn-primary">Neem contact op &rarr;</Link>
-            </div>
+          ))}
+
+          <div className="text-center mt-4">
+            <Link to="/contact" className="btn-primary">Neem contact op &rarr;</Link>
           </div>
         </div>
       </section>
@@ -159,7 +206,7 @@ function WieZijnWij() {
               </p>
               <div className="space-y-3">
                 {[
-                  { label: 'Telefoon', value: '06 845 985 78', href: 'tel:0684598578' },
+                  { label: 'Telefoon', value: '06 148 909 15', href: 'tel:0614890915' },
                   { label: 'E-mail', value: 'mkgroup@corelink.nl', href: 'mailto:mkgroup@corelink.nl' },
                 ].map((c) => (
                   <a key={c.label} href={c.href} className="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-200 hover:border-blue-300 hover:shadow-card transition-all duration-200 group">

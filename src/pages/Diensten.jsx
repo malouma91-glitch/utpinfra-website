@@ -115,7 +115,7 @@ function Diensten() {
               </p>
               <div className="bg-white rounded-2xl p-6 border border-slate-200 space-y-3">
                 {[
-                  { label: 'Telefoon', val: '06 845 985 78', href: 'tel:0684598578' },
+                  { label: 'Telefoon', val: '06 148 909 15', href: 'tel:0614890915' },
                   { label: 'E-mail', val: 'mkgroup@corelink.nl', href: 'mailto:mkgroup@corelink.nl' },
                 ].map((c) => (
                   <a key={c.label} href={c.href} className="flex items-center gap-3 text-slate-600 hover:text-blue-600 transition-colors">
