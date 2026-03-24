@@ -8,7 +8,7 @@ export const management = [
   {
     name: 'Mohammed Alou',
     role: 'Founding Partner & Algemeen Directeur',
-    photo: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&h=400&q=80',
+    photo: 'https://images.unsplash.com/photo-1586083702768-190ae093d34d?auto=format&fit=crop&w=400&h=400&q=80',
     bio: 'Mohammed is de drijvende kracht achter MK CoreLink Group. Als allround ondernemer combineert hij diepgaande kennis van transport, IT-infrastructuur én beveiliging — een zeldzame combinatie in de markt. Vanuit zijn visie werkt hij aan een bedrijf dat kwaliteit, betrouwbaarheid en klantgerichtheid op alle drie de divisies centraal stelt. Mohammed stelt altijd de klant op de eerste plaats.',
     specialisaties: ['Transport & Logistiek', 'IT-Infrastructuur', 'Camerabeveiliging', 'Projectmanagement', 'Bedrijfsstrategie'],
     badge: 'CEO & Oprichter',
@@ -17,7 +17,7 @@ export const management = [
   {
     name: 'Karim Charradi',
     role: 'Co-Founder & Operationeel Directeur',
-    photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&h=400&q=80',
+    photo: 'https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=400&h=400&q=80',
     bio: 'Karim is medeoprichter van MK CoreLink Group en de specialist op het gebied van warehouse management en logistieke coördinatie. Als operationeel directeur zorgt hij ervoor dat onze uitvoerende teams bij opdrachtgevers soepel draaien. Met zijn uitgebreide kennis van transportplanning, magazijnlogistiek en coördinerende functies is hij de verbindende schakel tussen opdrachtgever en uitvoering.',
     specialisaties: ['Warehouse Management', 'Transport Coördinatie', 'Logistieke Planning', 'Teamleiding Uitvoer', 'Opdrachtgever Relaties'],
     badge: 'COO & Medeoprichter',
@@ -51,7 +51,7 @@ export const team = {
       {
         name: 'Nabil Idrissi',
         role: 'Senior Koerier & Distributieplanner',
-        photo: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&h=400&q=80',
+        photo: 'https://images.unsplash.com/photo-1596075780750-81249df16d19?auto=format&fit=crop&w=400&h=400&q=80',
         bio: 'Nabil combineert jarenlange rijervaring met logistiek planningsinzicht. Hij verzorgt de dagelijkse distributie- en koeriersritten en vindt altijd een oplossing — ook op drukke dagen. ADR-gecertificeerd, betrouwbaar en altijd op tijd.',
         specialisaties: ['Same-day delivery', 'Distributieplanning', 'ADR-gecertificeerd transport', 'Last-mile logistiek'],
       },
@@ -83,7 +83,7 @@ export const team = {
       {
         name: 'Tarik Benali',
         role: 'Netwerk Engineer & Wi-Fi Specialist',
-        photo: 'https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&w=400&h=400&q=80',
+        photo: 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=400&h=400&q=80',
         bio: 'Tarik is onze netwerk engineer verantwoordelijk voor ontwerp en configuratie van bedrijfsnetwerken. Als gecertificeerd Ubiquiti specialist voert hij Wi-Fi site surveys uit, ontwerpt VLAN-architecturen en configureert firewalls. Zijn netwerken werken altijd — hij denkt een stap vooruit en documenteert alles.',
         specialisaties: ['Ubiquiti UniFi deployments', 'VLAN & firewall configuratie', 'Wi-Fi site surveys & heatmaps', 'Netwerk monitoring & beheer'],
       },
@@ -107,14 +107,14 @@ export const team = {
       {
         name: 'Dennis Bakker',
         role: 'Beveiligingsspecialist & Projectleider',
-        photo: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&h=400&q=80',
+        photo: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&h=400&q=80',
         bio: 'Dennis leidt de uitvoering van camerasystemen en toegangscontroleprojecten. Als gecertificeerd Hikvision en BORG installateur combineert hij technische diepgang met een scherp oog voor beveiligingsrisico\'s. Elk systeem levert hij op conform AVG-wetgeving — compleet met camerabeleid en documentatie.',
         specialisaties: ['IP-camerasystemen (Hikvision)', 'NVR & cloudopslag configuratie', 'AVG-compliant camerabeleid', 'Beveiligingsadvies op maat'],
       },
       {
         name: 'Mehmet Yilmaz',
         role: 'Installateur Beveiliging & Toegangscontrole',
-        photo: 'https://images.unsplash.com/photo-1615109398623-88346a601842?auto=format&fit=crop&w=400&h=400&q=80',
+        photo: 'https://images.unsplash.com/photo-1545167622-3a6ac756afa4?auto=format&fit=crop&w=400&h=400&q=80',
         bio: 'Mehmet installeert en configureert alarmsystemen, toegangscontrole en inbraakdetectie voor bedrijfspanden. Gespecialiseerd in AJAX draadloze systemen en Roger toegangscontrole. Werkt snel, netjes en laat geen detail over aan het toeval.',
         specialisaties: ['AJAX alarmsystemen', 'Roger toegangscontrole', 'Inbraakdetectie & sensorinstallatie', 'Intercomsystemen'],
       },
