@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import ContactForm from '../components/ContactForm'
-import { team } from '../data/team'
+import { team, management } from '../data/team'
 
 const values = [
   {
@@ -125,14 +125,52 @@ function WieZijnWij() {
         </div>
       </section>
 
-      {/* Team members */}
+      {/* Management Section */}
       <section className="py-24 bg-white">
         <div className="container-main">
+          <div className="text-center mb-14">
+            <span className="text-blue-600 text-sm font-bold uppercase tracking-widest mb-3 block">Leiderschap</span>
+            <h2 className="text-3xl font-black font-raleway text-slate-900 mb-4">De oprichters achter MK CoreLink Group</h2>
+            <p className="text-slate-500 max-w-xl mx-auto">
+              MK CoreLink Group is opgericht door twee gedreven ondernemers die samen de expertise hebben om transport, infra én security onder één dak te bieden.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-10 mb-24">
+            {management.map((person) => (
+              <div key={person.name} className="relative bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl overflow-hidden shadow-xl border border-slate-700 flex flex-col">
+                <div className="absolute top-5 right-5">
+                  <span className="text-xs font-bold px-3 py-1.5 rounded-full text-white" style={{ background: person.badgeColor }}>
+                    {person.badge}
+                  </span>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-0">
+                  <div className="w-full sm:w-52 shrink-0 h-56 sm:h-auto overflow-hidden">
+                    <img src={person.photo} alt={person.name} className="w-full h-full object-cover object-top" />
+                  </div>
+                  <div className="p-7 flex flex-col justify-between">
+                    <div>
+                      <p className="font-black text-white text-xl leading-tight mb-1">{person.name}</p>
+                      <p className="text-blue-400 font-semibold text-sm mb-4">{person.role}</p>
+                      <p className="text-slate-400 text-sm leading-relaxed mb-5">{person.bio}</p>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {person.specialisaties.map((s) => (
+                        <span key={s} className="text-xs px-2.5 py-1 rounded-full bg-white/10 text-slate-300 font-medium border border-white/10">
+                          {s}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
           <div className="text-center mb-14">
             <span className="text-blue-600 text-sm font-bold uppercase tracking-widest mb-3 block">Ons team</span>
             <h2 className="text-3xl font-black font-raleway text-slate-900 mb-4">Maak kennis met onze professionals</h2>
             <p className="text-slate-500 max-w-xl mx-auto">
-              Ons team bestaat uit gemotiveerde en gecertificeerde professionals — elk specialist in hun vakgebied.
+              Ons team bestaat uit gecertificeerde vakmensen — elk specialist in hun vakgebied en divisie.
             </p>
           </div>
 

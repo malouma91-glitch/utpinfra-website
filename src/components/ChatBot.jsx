@@ -46,6 +46,10 @@ function detectIntent(input) {
   if (/\b(diensten|aanbod|wat doen|specialisatie|wat bied|portfolio|overzicht)\b/.test(t)) return 'services'
   if (/\b(project|referentie|voorbeeld|klant|eerder|ervaring|portfolio|case)\b/.test(t)) return 'references'
   if (/\b(duurzaam|energie|poe|zuinig|verbruik|groen|milieu)\b/.test(t)) return 'sustainability'
+  if (/\b(transport|koerier|bezorging|rit|chauffeur|rijden|vervoer|levering|vrachtbrief)\b/.test(t)) return 'transport'
+  if (/\b(medisch|ziekenhuis|laboratorium|apotheek|bloed|monsters|geneesmiddelen|gdp|farmaceu)\b/.test(t)) return 'medical'
+  if (/\b(magazijn|warehouse|opslag|depot|distributiecentrum|logistiek|pallets|picking|fulfilment|wms)\b/.test(t)) return 'warehouse'
+  if (/\b(samenwerken|partner|onderaannemer|uitbesteden|inhuren|opdracht|subcontract|flex|zzp|inlenen)\b/.test(t)) return 'partnership'
 
   return 'unknown'
 }
@@ -296,6 +300,42 @@ function buildResponse(intent, _input, ctx) {
           `Mooi dat u dat meeneemt! PoE-infrastructuur en energie-efficiënte hardware kunnen het stroomverbruik aanzienlijk verlagen.\n\nWij adviseren altijd om te kiezen voor hardware met lage TDP (thermal design power) en slim netbeheer — zo verbruikt het netwerk 's nachts automatisch minder.\n\nWat zijn uw duurzaamheidsdoelen? Dan denk ik graag mee.`,
         ]),
         suggestions: ['PoE uitleggen', 'Duurzame hardware kiezen', 'Offerte aanvragen'],
+      }
+
+    case 'transport':
+      return {
+        text: pick([
+          `MK Transport is onze logistieke divisie — en een heel veelzijdige! 🚚\n\nWij verzorgen:\n• **Medisch transport** — ziekenhuizen, laboratoria, apotheken\n• **Koeriersdiensten** — same-day, spoedritten, regelmatige routes\n• **Distributie & logistiek** — vaste en flexibele distributiestructuren\n• **Warehouse coördinatie** — ons team coördineert ook in uw magazijn\n\nAl onze chauffeurs zijn GDP-gecertificeerd en beschikken over de juiste papieren. Wat heeft u nodig?`,
+          `Transport is één van onze drie pijlers! Wij rijden voor ziekenhuizen, laboratoria, farmaceutische bedrijven en logistieke partijen.\n\nKarim Charradi — onze co-directeur — is specialist in warehouse en transportcoördinatie. Hij zorgt dat onze mensen bij uw locatie naadloos aansluiten op uw processen.\n\nWat is uw transportvraagstuk?`,
+        ]),
+        suggestions: ['Medisch transport', 'Koeriersdiensten', 'Warehousing & logistiek', 'Offerte transport'],
+      }
+
+    case 'medical':
+      return {
+        text: pick([
+          `Medisch transport is ons specialisme binnen MK Transport. Wij rijden dagelijks voor:\n\n• Ziekenhuizen (lab-monsters, bloed, medicatie)\n• Apotheken (spoed- en reguliere leveringen)\n• Laboratoria (tijdkritische monsters)\n• Farmaceutische bedrijven (GDP-gecertificeerd)\n\nAl ons medisch transport valt onder **GDP-richtlijnen** (Good Distribution Practice). Temperatuurbewaking, correct verpakt, op tijd — zonder uitzondering.\n\nVoor welke instelling zoekt u transport?`,
+          `Medisch transport vereist precisie, timing en de juiste certificering. Dat hebben wij allemaal.\n\nOnze GDP-gecertificeerde chauffeurs kennen de protocollen voor het vervoer van bloedmonsters, medicijnen en temperatuurgevoelige producten. Wij rijden vaste routes én spoedritten — ook buiten kantooruren.\n\nWelke instelling bent u, en hoe frequent heeft u transport nodig?`,
+        ]),
+        suggestions: ['GDP-transport uitleggen', 'Vaste routes plannen', 'Spoedritten', 'Offerte aanvragen'],
+      }
+
+    case 'warehouse':
+      return {
+        text: pick([
+          `Warehouse management en coördinatie — Karim Charradi, onze co-directeur, is hier de expert. 📦\n\nWij leveren:\n• **Coördinatoren** voor in uw warehouse of distributiecentrum\n• **Teamleiders** voor het aansturen van picking, packing en expeditie\n• **Logistieke planners** voor route- en capaciteitsplanning\n• **Flex inzet** — dagelijks, wekelijks of projectbasis\n\nWij sluiten volledig aan op uw WMS en werkprocessen. Geen inwerkperiode die u geld kost — wij zijn er snel ingewijd.\n\nWelke functie heeft u nodig?`,
+          `Warehouse coördinatie is iets waar Karim alles van weet — hij heeft zelf jarenlang als coördinator gewerkt bij grote opdrachtgevers.\n\nWij plaatsen coördinatoren, teamleiders en planners in uw distributiecentrum. Tijdelijk, flexibel of structureel. Altijd gekoppeld aan onze eigen kwaliteitsborging.\n\nMag ik vragen: gaat het om een tijdelijke behoefte of zoekt u een structurele oplossing?`,
+        ]),
+        suggestions: ['Coördinator inhuren', 'Teamleider warehouse', 'Flex inzet logistiek', 'Offerte bespreken'],
+      }
+
+    case 'partnership':
+      return {
+        text: pick([
+          `Samenwerken met MK CoreLink Group — absoluut een goed idee! 🤝\n\nWij werken op twee manieren samen:\n\n**Als onderaannemer voor u:**\n• Wij voeren uit wat u opdraagt — transport, infra of security\n• Wij werken discreet onder uw vlag als dat gewenst is\n• Vaste prijsafspraken, geen verrassingen\n\n**U besteedt bij ons uit:**\n• Wij nemen een volledige dienst over — van planning tot uitvoering\n• U houdt regie, wij zorgen voor de rest\n\nWat voor samenwerking ziet u voor zich?`,
+          `Wij werken graag als partner of onderaannemer voor andere bedrijven. Denk aan installatiebureau's, telecombedrijven, aannemers en facility managers die extra capaciteit nodig hebben.\n\nWij zijn flexibel, betrouwbaar en hebben alle certificeringen in huis. U hoeft niet bang te zijn voor kwaliteitsproblemen — wij werken conform uw standaarden.\n\nBent u opdrachtgever die ons wil inhuren, of zoekt u een structurele samenwerking?`,
+        ]),
+        suggestions: ['Ons inhuren als onderaannemer', 'Dienst uitbesteden', 'Vaste samenwerking bespreken', 'Contact opnemen'],
       }
 
     case 'unknown':
