@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import ContactForm from '../components/ContactForm'
 import { divisions } from '../data/services'
 import { HeroGeometric } from '../components/ui/shape-landing-hero'
+import ScrollReveal from '../components/ScrollReveal'
 
 /* ── Divisie kleuren ── */
 const divColors = { transport: '#10B981', infra: '#2563EB', security: '#EF4444' }
@@ -496,15 +497,15 @@ function Home() {
         ctaSecondary={{ label: 'Onze diensten', href: '/diensten' }}
       />
       <StatsBar />
-      <CertificationsSection />
-      <DivisionsSection />
-      <AboutSection />
-      <ReviewsSection />
-      <FeaturesSection />
-      <PartnerSection />
-      <ProcessSection />
-      <FreeScanCTA />
-      <ContactSection />
+      <ScrollReveal><CertificationsSection /></ScrollReveal>
+      <ScrollReveal><DivisionsSection /></ScrollReveal>
+      <ScrollReveal><AboutSection /></ScrollReveal>
+      <ScrollReveal><ReviewsSection /></ScrollReveal>
+      <ScrollReveal><FeaturesSection /></ScrollReveal>
+      <ScrollReveal><PartnerSection /></ScrollReveal>
+      <ScrollReveal><ProcessSection /></ScrollReveal>
+      <ScrollReveal><FreeScanCTA /></ScrollReveal>
+      <ScrollReveal><ContactSection /></ScrollReveal>
     </div>
   )
 }

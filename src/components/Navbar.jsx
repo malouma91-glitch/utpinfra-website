@@ -8,6 +8,7 @@ const navLinks = [
   { to: '/portfolio', label: 'Portfolio' },
   { to: '/referenties', label: 'Referenties' },
   { to: '/faq', label: 'FAQ' },
+  { to: '/kennisbank', label: 'Kennisbank' },
   { to: '/contact', label: 'Contact' },
 ]
 

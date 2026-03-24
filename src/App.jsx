@@ -7,6 +7,7 @@ import Referenties from './pages/Referenties'
 import Contact from './pages/Contact'
 import FAQ from './pages/FAQ'
 import Portfolio from './pages/Portfolio'
+import Kennisbank from './pages/Kennisbank'
 import NotFound from './pages/NotFound'
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="referenties" element={<Referenties />} />
           <Route path="portfolio" element={<Portfolio />} />
           <Route path="faq" element={<FAQ />} />
+          <Route path="kennisbank" element={<Kennisbank />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Route>
