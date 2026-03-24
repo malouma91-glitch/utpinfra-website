@@ -4,7 +4,9 @@ const navLinks = [
   { to: '/', label: 'Home' },
   { to: '/wie-zijn-wij', label: 'Over ons' },
   { to: '/diensten', label: 'Diensten' },
+  { to: '/portfolio', label: 'Portfolio' },
   { to: '/referenties', label: 'Referenties' },
+  { to: '/faq', label: 'FAQ' },
   { to: '/contact', label: 'Contact' },
 ]
 
@@ -102,7 +104,11 @@ function Footer() {
       <div className="border-t border-slate-800">
         <div className="container-main py-5 flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="text-xs text-slate-600">&copy; {new Date().getFullYear()} MK CoreLink Group B.V. Alle rechten voorbehouden.</p>
-          <p className="text-xs text-slate-600">KvK: 66920280</p>
+          <div className="flex flex-wrap gap-4 text-xs text-slate-600">
+            <span>KvK: 66920280</span>
+            <span>BTW: NL856752721B01</span>
+            <span>RSIN: 856752721</span>
+          </div>
         </div>
       </div>
     </footer>

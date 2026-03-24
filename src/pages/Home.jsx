@@ -1,10 +1,68 @@
 import { Link } from 'react-router-dom'
+import { useEffect, useRef, useState } from 'react'
 import ContactForm from '../components/ContactForm'
 import { divisions } from '../data/services'
 import { HeroGeometric } from '../components/ui/shape-landing-hero'
 
 /* ── Divisie kleuren ── */
 const divColors = { transport: '#10B981', infra: '#2563EB', security: '#EF4444' }
+
+/* ── Animated counter hook ── */
+function useCountUp(target, duration = 2000) {
+  const [count, setCount] = useState(0)
+  const ref = useRef(null)
+  const started = useRef(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !started.current) {
+          started.current = true
+          const start = performance.now()
+          const step = (now) => {
+            const progress = Math.min((now - start) / duration, 1)
+            setCount(Math.floor(progress * target))
+            if (progress < 1) requestAnimationFrame(step)
+          }
+          requestAnimationFrame(step)
+        }
+      },
+      { threshold: 0.3 }
+    )
+    if (ref.current) observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [target, duration])
+
+  return { count, ref }
+}
+
+/* ── Stats data ── */
+const stats = [
+  { value: 150, suffix: '+', label: 'Projecten afgerond' },
+  { value: 3200, suffix: '+', label: 'km kabel geïnstalleerd' },
+  { value: 98, suffix: '%', label: 'Klanttevredenheid' },
+  { value: 8, suffix: '+', label: 'Jaar ervaring' },
+]
+
+/* ── Reviews ── */
+const reviews = [
+  { name: 'J. van der Meer', company: 'VH Logistics B.V.', stars: 5, text: 'MK CoreLink Group heeft ons magazijn voorzien van een compleet netwerk. Professioneel, netjes en precies op tijd opgeleverd. Topwerk!' },
+  { name: 'R. Kuiper', company: 'MediFast Apotheek', stars: 5, text: 'Sinds wij samenwerken met MK Transport hoeven wij ons geen zorgen meer te maken over onze medische leveringen. Betrouwbaar en altijd bereikbaar.' },
+  { name: 'D. Hendriks', company: 'SecurePoint BV', stars: 5, text: 'Het camerasysteem dat MK Security heeft geïnstalleerd werkt perfect. AVG-compliant, scherp beeld en uitstekende nazorg. Aanbevolen!' },
+  { name: 'M. de Boer', company: 'Kantoor Plus Utrecht', stars: 4, text: 'Goede service, eerlijke prijzen. Wi-Fi werkt eindelijk overal in ons kantoor. Het team is vriendelijk en deskundig.' },
+]
+
+/* ── Certificerings partners ── */
+const certLogos = [
+  { name: 'Ubiquiti', color: '#0559C9' },
+  { name: 'Hikvision', color: '#E31937' },
+  { name: 'AJAX', color: '#000000' },
+  { name: 'Extreme Networks', color: '#6E2C91' },
+  { name: 'FLUKE', color: '#FFB81C' },
+  { name: 'VCA**', color: '#00A651' },
+  { name: 'GDP', color: '#2563EB' },
+  { name: 'BORG', color: '#1E3A5F' },
+]
 
 /* ── USP features ── */
 const features = [
@@ -257,6 +315,175 @@ function ContactSection() {
   )
 }
 
+/* ── Live Stats Bar ── */
+function StatsBar() {
+  return (
+    <section className="relative -mt-12 z-10">
+      <div className="container-main">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-0 bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden">
+          {stats.map((stat, i) => {
+            const { count, ref } = useCountUp(stat.value)
+            return (
+              <div key={stat.label} ref={ref} className={`text-center py-8 px-4 ${i < stats.length - 1 ? 'border-r border-slate-100' : ''}`}>
+                <div className="text-3xl md:text-4xl font-black text-slate-900 mb-1">
+                  {count.toLocaleString('nl-NL')}<span className="text-blue-600">{stat.suffix}</span>
+                </div>
+                <div className="text-slate-500 text-sm font-medium">{stat.label}</div>
+              </div>
+            )
+          })}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* ── Klantbeoordelingen ── */
+function ReviewsSection() {
+  return (
+    <section className="py-24 bg-white">
+      <div className="container-main">
+        <div className="text-center mb-14">
+          <span className="text-blue-600 text-sm font-bold uppercase tracking-widest mb-3 block">Beoordelingen</span>
+          <h2 className="text-3xl md:text-4xl font-black font-raleway text-slate-900 mb-4">Wat klanten over ons zeggen</h2>
+          <div className="flex items-center justify-center gap-2 mb-2">
+            {[...Array(5)].map((_, i) => (
+              <svg key={i} className="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            ))}
+            <span className="ml-2 text-slate-900 font-black text-lg">4.9 / 5</span>
+          </div>
+          <p className="text-slate-500 text-sm">Gebaseerd op klantervaringen</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {reviews.map((r) => (
+            <div key={r.name} className="bg-slate-50 rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:border-blue-200 transition-all duration-300">
+              <div className="flex gap-0.5 mb-4">
+                {[...Array(r.stars)].map((_, i) => (
+                  <svg key={i} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                ))}
+                {r.stars < 5 && (
+                  <svg className="w-4 h-4 text-slate-300" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                )}
+              </div>
+              <p className="text-slate-600 text-sm leading-relaxed mb-4 italic">&ldquo;{r.text}&rdquo;</p>
+              <div className="border-t border-slate-200 pt-4">
+                <p className="font-bold text-slate-800 text-sm">{r.name}</p>
+                <p className="text-slate-400 text-xs">{r.company}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* ── Certificeringen / Partnerlogo's ── */
+function CertificationsSection() {
+  return (
+    <section className="py-16 bg-slate-50 border-y border-slate-200">
+      <div className="container-main">
+        <div className="text-center mb-10">
+          <span className="text-blue-600 text-sm font-bold uppercase tracking-widest mb-3 block">Certificeringen & Partners</span>
+          <h2 className="text-2xl font-black font-raleway text-slate-900">Wij werken met de beste merken</h2>
+        </div>
+        <div className="flex flex-wrap justify-center items-center gap-6">
+          {certLogos.map((logo) => (
+            <div key={logo.name} className="flex items-center gap-2 px-5 py-3 bg-white rounded-xl border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all duration-300">
+              <span className="w-3 h-3 rounded-full shrink-0" style={{ background: logo.color }} />
+              <span className="font-bold text-slate-700 text-sm">{logo.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* ── Gratis Adviesgesprek CTA ── */
+function FreeScanCTA() {
+  return (
+    <section className="py-16" style={{ background: 'linear-gradient(135deg, #1E40AF 0%, #06B6D4 100%)' }}>
+      <div className="container-main text-center">
+        <h2 className="text-3xl md:text-4xl font-black font-raleway text-white mb-4">Gratis adviesgesprek aanvragen</h2>
+        <p className="text-blue-100 max-w-lg mx-auto leading-relaxed mb-8">
+          Benieuwd wat MK CoreLink Group voor uw bedrijf kan betekenen? Plan een kosteloos en vrijblijvend adviesgesprek — op locatie of telefonisch.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link to="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-blue-700 font-bold rounded-xl hover:bg-blue-50 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            Plan een afspraak
+          </Link>
+          <a href="tel:0614890915" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/15 text-white font-bold rounded-xl border border-white/30 hover:bg-white/25 transition-all duration-200">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            Bel direct: 06 148 909 15
+          </a>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* ── Aanbestedingen / Onderaannemerschap ── */
+function PartnerSection() {
+  return (
+    <section className="py-24 bg-white">
+      <div className="container-main">
+        <div className="grid md:grid-cols-2 gap-14 items-center">
+          <div>
+            <span className="text-blue-600 text-sm font-bold uppercase tracking-widest mb-3 block">Samenwerking</span>
+            <h2 className="text-3xl md:text-4xl font-black font-raleway text-slate-900 mb-6 leading-tight">
+              Wij werken ook als onderaannemer
+            </h2>
+            <p className="text-slate-500 leading-relaxed mb-4">
+              Bent u een installatiebedrijf, aannemer, telecombedrijf of facility manager? MK CoreLink Group werkt graag als onderaannemer voor uw projecten.
+            </p>
+            <p className="text-slate-500 leading-relaxed mb-6">
+              Wij leveren gekwalificeerde datamonteurs, netwerk engineers, chauffeurs en beveiligingsspecialisten. Flexibel, betrouwbaar en met alle benodigde certificeringen.
+            </p>
+            <ul className="space-y-3 mb-8">
+              {['Alle certificeringen in huis (VCA**, GDP, BORG)', 'Eigen materiaal en gereedschap', 'Schaalbaar — van 1 monteur tot een compleet team', 'Flexibel inzetbaar — per dag, week of project', 'Ervaring met aanbestedingen en grote opdrachtgevers'].map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <span className="w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5" style={{ background: 'linear-gradient(135deg,#2563EB,#06B6D4)' }}>
+                    <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </span>
+                  <span className="text-slate-700 text-sm font-medium">{item}</span>
+                </li>
+              ))}
+            </ul>
+            <Link to="/contact" className="btn-primary">Samenwerking bespreken &rarr;</Link>
+          </div>
+          <div className="relative">
+            <div className="rounded-2xl overflow-hidden shadow-xl">
+              <img
+                src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=800&q=80"
+                alt="MK CoreLink Group samenwerking"
+                className="w-full h-80 object-cover"
+              />
+            </div>
+            <div className="absolute -bottom-4 -left-4 bg-blue-600 rounded-2xl shadow-xl p-5 text-white">
+              <div className="text-2xl font-black mb-0.5">3 Divisies</div>
+              <div className="text-blue-200 text-sm">Transport · Infra · Security</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function Home() {
   return (
     <div>
@@ -265,13 +492,18 @@ function Home() {
         title1="MK CoreLink"
         title2="Group"
         description="Drie divisies, één partner. Van medisch transport en IT-infrastructuur tot beveiligingsoplossingen — MK CoreLink Group ontzorgt u volledig."
-        ctaPrimary={{ label: 'Vrijblijvend gesprek \u2192', href: '/contact' }}
+        ctaPrimary={{ label: 'Gratis adviesgesprek \u2192', href: '/contact' }}
         ctaSecondary={{ label: 'Onze diensten', href: '/diensten' }}
       />
+      <StatsBar />
+      <CertificationsSection />
       <DivisionsSection />
       <AboutSection />
+      <ReviewsSection />
       <FeaturesSection />
+      <PartnerSection />
       <ProcessSection />
+      <FreeScanCTA />
       <ContactSection />
     </div>
   )

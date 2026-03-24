@@ -1,3 +1,5 @@
+import SpoedBanner from './SpoedBanner'
+
 const usps = [
   { label: 'Transport',  color: '#10B981' },
   { label: 'Infra',      color: '#2563EB' },
@@ -29,9 +31,10 @@ function TopBar() {
           ))}
         </div>
 
-        {/* Right — Contact pills */}
-        <div className="flex items-center gap-2 ml-auto">
-          <div className="hidden md:block w-px h-4 bg-slate-700 mr-1" />
+        {/* Right — Spoed + Contact pills */}
+        <div className="flex items-center gap-3 ml-auto">
+          <SpoedBanner />
+          <div className="hidden md:block w-px h-4 bg-slate-700" />
 
           <a href="tel:0614890915" className="contact-pill">
             <span

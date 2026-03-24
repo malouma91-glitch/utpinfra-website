@@ -5,7 +5,9 @@ const navLinks = [
   { to: '/', label: 'Home', end: true },
   { to: '/wie-zijn-wij', label: 'Over ons' },
   { to: '/diensten', label: 'Diensten' },
+  { to: '/portfolio', label: 'Portfolio' },
   { to: '/referenties', label: 'Referenties' },
+  { to: '/faq', label: 'FAQ' },
   { to: '/contact', label: 'Contact' },
 ]
 

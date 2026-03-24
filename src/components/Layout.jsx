@@ -3,6 +3,7 @@ import TopBar from './TopBar'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import ChatBot from './ChatBot'
+import WhatsAppButton from './WhatsAppButton'
 
 function Layout() {
   return (
@@ -14,6 +15,7 @@ function Layout() {
       </main>
       <Footer />
       <ChatBot />
+      <WhatsAppButton />
     </div>
   )
 }
