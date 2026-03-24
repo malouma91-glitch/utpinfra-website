@@ -8,7 +8,7 @@ export const management = [
   {
     name: 'Mohammed Alou',
     role: 'Founding Partner & Algemeen Directeur',
-    photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&h=400&q=80',
+    photo: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&h=400&q=80',
     bio: 'Mohammed is de drijvende kracht achter MK CoreLink Group. Als allround ondernemer combineert hij diepgaande kennis van transport, IT-infrastructuur én beveiliging — een zeldzame combinatie in de markt. Vanuit zijn visie werkt hij aan een bedrijf dat kwaliteit, betrouwbaarheid en klantgerichtheid op alle drie de divisies centraal stelt. Mohammed stelt altijd de klant op de eerste plaats.',
     specialisaties: ['Transport & Logistiek', 'IT-Infrastructuur', 'Camerabeveiliging', 'Projectmanagement', 'Bedrijfsstrategie'],
     badge: 'CEO & Oprichter',
@@ -17,7 +17,7 @@ export const management = [
   {
     name: 'Karim Charradi',
     role: 'Co-Founder & Operationeel Directeur',
-    photo: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&h=400&q=80',
+    photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&h=400&q=80',
     bio: 'Karim is medeoprichter van MK CoreLink Group en de specialist op het gebied van warehouse management en logistieke coördinatie. Als operationeel directeur zorgt hij ervoor dat onze uitvoerende teams bij opdrachtgevers soepel draaien. Met zijn uitgebreide kennis van transportplanning, magazijnlogistiek en coördinerende functies is hij de verbindende schakel tussen opdrachtgever en uitvoering.',
     specialisaties: ['Warehouse Management', 'Transport Coördinatie', 'Logistieke Planning', 'Teamleiding Uitvoer', 'Opdrachtgever Relaties'],
     badge: 'COO & Medeoprichter',
@@ -44,7 +44,7 @@ export const team = {
       {
         name: 'Youssef El Amrani',
         role: 'Teamleider Medisch Transport',
-        photo: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&h=400&q=80',
+        photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&h=400&q=80',
         bio: 'Youssef stuurt ons medisch transportteam aan en coördineert de dagelijkse routes voor ziekenhuizen, laboratoria en apotheken in de Randstad. Met meer dan 6 jaar ervaring in GDP-gecertificeerd medisch vervoer zorgt hij dat elke zending veilig, tijdig en conform regelgeving aankomt.',
         specialisaties: ['Medische koeriersdiensten', 'Route-optimalisatie', 'GDP-compliance', 'Temperatuurgevoelig vervoer'],
       },
@@ -76,14 +76,14 @@ export const team = {
       {
         name: 'Daan Visser',
         role: 'Lead Datamonteur & Glasvezelspecialist',
-        photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&h=400&q=80',
+        photo: 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?auto=format&fit=crop&w=400&h=400&q=80',
         bio: 'Daan is onze lead datamonteur met brede expertise in gestructureerde bekabeling en glasvezel. Van CAT6A-kabels trekken tot single-mode glasvezel lassen en inmeten met een OTDR — hij levert elk project op met certificering en volledige technische documentatie.',
         specialisaties: ['CAT6A / CAT7 bekabeling', 'Glasvezel lassen & meten (OTDR)', 'Patchkast inrichting & labeling', 'TIA/EIA-568 gecertificeerd'],
       },
       {
         name: 'Tarik Benali',
         role: 'Netwerk Engineer & Wi-Fi Specialist',
-        photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&h=400&q=80',
+        photo: 'https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&w=400&h=400&q=80',
         bio: 'Tarik is onze netwerk engineer verantwoordelijk voor ontwerp en configuratie van bedrijfsnetwerken. Als gecertificeerd Ubiquiti specialist voert hij Wi-Fi site surveys uit, ontwerpt VLAN-architecturen en configureert firewalls. Zijn netwerken werken altijd — hij denkt een stap vooruit en documenteert alles.',
         specialisaties: ['Ubiquiti UniFi deployments', 'VLAN & firewall configuratie', 'Wi-Fi site surveys & heatmaps', 'Netwerk monitoring & beheer'],
       },
@@ -107,14 +107,14 @@ export const team = {
       {
         name: 'Dennis Bakker',
         role: 'Beveiligingsspecialist & Projectleider',
-        photo: 'https://images.unsplash.com/photo-1548449112-96a38a643324?auto=format&fit=crop&w=400&h=400&q=80',
+        photo: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&h=400&q=80',
         bio: 'Dennis leidt de uitvoering van camerasystemen en toegangscontroleprojecten. Als gecertificeerd Hikvision en BORG installateur combineert hij technische diepgang met een scherp oog voor beveiligingsrisico\'s. Elk systeem levert hij op conform AVG-wetgeving — compleet met camerabeleid en documentatie.',
         specialisaties: ['IP-camerasystemen (Hikvision)', 'NVR & cloudopslag configuratie', 'AVG-compliant camerabeleid', 'Beveiligingsadvies op maat'],
       },
       {
         name: 'Mehmet Yilmaz',
         role: 'Installateur Beveiliging & Toegangscontrole',
-        photo: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=400&h=400&q=80',
+        photo: 'https://images.unsplash.com/photo-1615109398623-88346a601842?auto=format&fit=crop&w=400&h=400&q=80',
         bio: 'Mehmet installeert en configureert alarmsystemen, toegangscontrole en inbraakdetectie voor bedrijfspanden. Gespecialiseerd in AJAX draadloze systemen en Roger toegangscontrole. Werkt snel, netjes en laat geen detail over aan het toeval.',
         specialisaties: ['AJAX alarmsystemen', 'Roger toegangscontrole', 'Inbraakdetectie & sensorinstallatie', 'Intercomsystemen'],
       },
