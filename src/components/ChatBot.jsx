@@ -24,7 +24,8 @@ function detectIntent(input) {
   if (/\b(bedankt|dankjewel|dankuwel|dank u|dank je|super|geweldig|top|prima|fijn|perfect|mooi|hartstikke)\b/.test(t)) return 'thanks'
   if (/\b(doei|tot ziens|bye|ciao|later|tot later|afsluiten|ik ga)\b/.test(t)) return 'bye'
   if (/\b(hoe gaat|hoe is|hoe gaat het|alles goed|hoe ben|hoe staat)\b/.test(t)) return 'smalltalk'
-  if (/\b(naam|wie ben|wie zijn|stelt u voor|wie is daan|wie praat)\b/.test(t)) return 'whoami'
+  if (/\b(wie zijn jullie|over jullie|jullie bedrijf|wat is mk|mk corelink|corelink group|opgericht|geschiedenis|achtergrond)\b/.test(t)) return 'company'
+  if (/\b(naam|wie ben|wie is daan|stelt u voor|wie praat|wie ben jij)\b/.test(t)) return 'whoami'
   if (/\b(prijs|kosten|tarief|budget|euro|betaal|goedkoop|duur|wat kost|hoeveel|investering|kostenplaatje)\b/.test(t)) return 'price'
   if (/\b(offerte|quote|aanvraag|voorstel|vrijblijvend|aanvragen)\b/.test(t)) return 'quote'
   if (/\b(glasvezel|fiber|fibre|optisch|single.mode|multi.mode|glas|vezel)\b/.test(t)) return 'fiber'
@@ -50,6 +51,23 @@ function detectIntent(input) {
   if (/\b(medisch|ziekenhuis|laboratorium|apotheek|bloed|monsters|geneesmiddelen|gdp|farmaceu)\b/.test(t)) return 'medical'
   if (/\b(magazijn|warehouse|opslag|depot|distributiecentrum|logistiek|pallets|picking|fulfilment|wms)\b/.test(t)) return 'warehouse'
   if (/\b(samenwerken|partner|onderaannemer|uitbesteden|inhuren|opdracht|subcontract|flex|zzp|inlenen)\b/.test(t)) return 'partnership'
+
+  // ── Bedrijf & team ──
+  if (/\b(bedrijf|over ons|history|wat doen jullie precies|hoe lang bestaan)\b/.test(t)) return 'company'
+  if (/\b(team|directeur|eigenaar|mohammed|karim|oprichter|management|bestuur|wie staat|medewerkers|personeel)\b/.test(t)) return 'team'
+  if (/\b(openingstijden|hoe laat|wanneer open|bereikbaar|ma t\/m|maandag|werkdagen|buiten kantoor|avond|weekend)\b/.test(t)) return 'opening_hours'
+  if (/\b(adres|locatie|kantoor|bilthoven|waar zitten|bezoek|vestiging|parkeren|postcode|utrecht)\b/.test(t)) return 'address'
+  if (/\b(kvk|kamer van koophandel|btw|rsin|registratie|inschrijving|btw-nummer|btwnummer)\b/.test(t)) return 'kvk'
+
+  // ── Security specifiek ──
+  if (/\b(alarm|inbraakdetectie|inbraak|detector|bewegingsmelder|sirene|alertering|melding)\b/.test(t)) return 'alarm'
+  if (/\b(toegang|toegangspas|badge|keypad|pincode|sleutelbeheer|deurcontrole|toegangskaart|paslezer)\b/.test(t)) return 'access_control'
+
+  // ── Spoed & storingen ──
+  if (/\b(spoed|urgent|spoedrit|calamiteit|noodgeval|haast|zo snel|direct|nu|breakdown|niet meer)\b/.test(t)) return 'emergency'
+
+  // ── Certificeringen ──
+  if (/\b(certificaat|gecertificeerd|certificering|iso|tia|norm|keurmerk|bewijs|diploma)\b/.test(t)) return 'certification'
 
   return 'unknown'
 }
@@ -338,6 +356,84 @@ function buildResponse(intent, _input, ctx) {
         suggestions: ['Ons inhuren als onderaannemer', 'Dienst uitbesteden', 'Vaste samenwerking bespreken', 'Contact opnemen'],
       }
 
+    case 'company':
+      return {
+        text: pick([
+          `MK CoreLink Group B.V. is opgericht op **26 september 2016** — oorspronkelijk als Kali Transport V.O.F. en sindsdien uitgegroeid tot een volwaardige multi-divisie groep.\n\nWat wij doen:\n🚚 **MK Transport** — medisch transport & logistiek\n🌐 **MK Infra** — IT-infrastructuur & netwerken\n🔐 **MK Security** — camerabewaking & pandbeveiliging\n\nKantoor: **Bilthoven (Utrecht)** — maar wij werken door heel Nederland. Eén partner voor drie vakgebieden — dat is onze kracht.`,
+          `MK CoreLink Group bestaat al since 2016 en heeft zich ontwikkeld van een transportbedrijf naar een volledige dienstverlener op het gebied van transport, IT-infrastructuur en beveiliging.\n\nWij geloven in één aanspreekpunt voor meerdere behoeften. Geen losse leveranciers, geen miscommunicatie — gewoon één partij die alles regelt.\n\nKvK-nummer: **66920280** | Gevestigd in **Bilthoven**\n\nWat wilt u van ons weten?`,
+        ]),
+        suggestions: ['Onze drie divisies', 'Ons team', 'Offerte aanvragen', 'Contact opnemen'],
+      }
+
+    case 'team':
+      return {
+        text: pick([
+          `Achter MK CoreLink Group staan twee eigenaren:\n\n👤 **Mohammed Alou** — Eigenaar & Directeur\nSpecialist in data, netwerken en beveiliging. Verantwoordelijk voor **MK Infra** en **MK Security** — van bekabeling en netwerk aanleg tot camerasystemen en toegangscontrole. VCA VOL gecertificeerd.\n\n👤 **Karim Charradi** — Eigenaar & Directeur\nDe specialist in transport, warehouse en logistiek. Uw aanspreekpunt voor alles binnen **MK Transport** — medische routes, distributie en magazijncoördinatie. VCA VOL gecertificeerd.\n\nSamen een combinatie van technische kennis én operationele expertise. U praat altijd met iemand die het vak door en door kent.`,
+          `MK CoreLink Group wordt geleid door twee eigenaren die elk hun eigen vakgebied hebben:\n\n**Mohammed Alou** — data monteur, netwerken & beveiliging (MK Infra + MK Security)\n**Karim Charradi** — transport, logistiek & warehouse (MK Transport)\n\nBeide heren zijn **VCA VOL gecertificeerd** en dagelijks actief in het veld. Geen managers achter een bureau — mensen die het werk zelf kennen.\n\nVraag over transport of logistiek? Dan is Karim uw man. IT-infrastructuur of beveiliging? Dan is Mohammed uw aanspreekpunt. Wie heeft u nodig?`,
+        ]),
+        suggestions: ['Transport / logistiek → Karim', 'Infra / security → Mohammed', 'Offerte aanvragen'],
+      }
+
+    case 'opening_hours':
+      return {
+        text: pick([
+          `Onze kantooruren zijn **maandag t/m vrijdag van 08:00 tot 17:30**. 📅\n\nMaar eerlijk gezegd: voor urgente zaken zijn wij ook buiten kantooruren bereikbaar. Zeker voor medisch transport gaan wij ook 's avonds en in het weekend de weg op.\n\n📞 **06 148 909 15** — voor spoedgevallen altijd beschikbaar\n✉️ **mkgroup@corelink.nl** — reactie binnen één werkdag\n\nHeeft u een spoedvraag of is het een regulier verzoek?`,
+          `Kantooruren: **ma t/m vr, 08:00–17:30**.\n\nVoor medisch transport en spoedritten zijn wij ook buiten kantooruren actief. De planning loopt door — u hoeft nooit te wachten als er haast bij is.\n\nRegelmatige vragen beantwoorden wij altijd dezelfde dag. Wat kan ik voor u doen?`,
+        ]),
+        suggestions: ['Spoedrit aanvragen', 'Reguliere afspraak', '06 148 909 15 bellen'],
+      }
+
+    case 'address':
+      return {
+        text: pick([
+          `Ons kantoor staat in **Bilthoven, Utrecht** 📍\n\n**Sterrenhof 10, 3721 WL Bilthoven**\n\nCentrale ligging in Nederland — goed bereikbaar vanuit Utrecht, Amersfoort, Hilversum en Amsterdam. Voldoende parkeerruimte aanwezig.\n\nBezoek is altijd **op afspraak** — bel even en wij plannen iets in dat u uitkomt. Wat brengt u naar ons?`,
+          `Ons vestigingsadres:\n\n📍 **Sterrenhof 10**\n**3721 WL Bilthoven (Utrecht)**\n\nKleine 10 minuten van Utrecht Centraal, goed bereikbaar via A28. Maar wij komen ook graag bij u langs — dat doen wij het liefst voor een eerste adviesgesprek.\n\nAfspraak maken? Bel **06 148 909 15** of mail **mkgroup@corelink.nl**.`,
+        ]),
+        suggestions: ['Afspraak inplannen', 'Route bekijken', 'Liever een huisbezoek'],
+      }
+
+    case 'kvk':
+      return {
+        text: `Geen probleem — voor inkoopafdelingen en offerteaanvragen:\n\n🏢 **MK CoreLink Group B.V.**\n📋 **KvK-nummer:** 66920280\n🔢 **RSIN/BTW:** 856752721\n📍 **Adres:** Sterrenhof 10, 3721 WL Bilthoven\n📞 **Tel:** 06 148 909 15\n✉️ **Mail:** mkgroup@corelink.nl\n\nHeeft u een specifiek document nodig zoals een KvK-uittreksel of bankgarantie? Dan sturen wij dat graag toe.`,
+        suggestions: ['KvK-uittreksel opvragen', 'Offerte aanvragen', 'Contact opnemen'],
+      }
+
+    case 'alarm':
+      return {
+        text: pick([
+          `Alarmsystemen — één van onze MK Security specialiteiten! Wij werken met **AJAX Systems**: het modernste draadloze alarmsysteem op de markt.\n\nWaarom AJAX?\n• **Volledig draadloos** — geen kabelbreuk, snelle installatie\n• **GSM + WiFi + Ethernet** — drie communicatiemiddelen tegelijk\n• **Real-time meldingen** op uw telefoon\n• **Sabotagedetectie** — wordt er aan de behuizing gerommeld? Direct alarm\n• **Accu-backup** — ook bij stroomuitval actief\n\nWij koppelen het alarmsysteem desgewenst ook aan een **particulier beveiligingsbedrijf** voor actieve bewaking. Gaat het om een klein pand of een groter complex?`,
+          `Inbraakdetectie met AJAX — wij installeren dit regelmatig voor kantoren, magazijnen en winkels.\n\nHet mooie van AJAX: de app geeft u **real-time inzicht** in wat er in uw pand gebeurt. Beweging gedetecteerd? Deur open? U krijgt direct een melding — waar u ook bent.\n\nWij adviseren altijd een combinatie: **alarm + camera + toegangscontrole**. Dan heeft u een volledig beeld én bewijs bij een incident.\n\nWat is uw situatie — alleen alarm, of een compleet pakket?`,
+        ]),
+        suggestions: ['AJAX alarmsysteem info', 'Compleet beveiligingspakket', 'Offerte beveiliging'],
+      }
+
+    case 'access_control':
+      return {
+        text: pick([
+          `Toegangscontrole — essentieel als u wilt bepalen wie wanneer waar mag zijn. Wij werken met **Roger** en **AJAX**:\n\n🔑 **Roger** — voor grotere installaties met veel deuren en gebruikers\n• Kaartlezers, PIN-pads, biometrisch\n• Centraal beheer via software\n• Tijdzonebeheer — wie mag wanneer welke deur openen\n• Koppeling met HR-systemen mogelijk\n\n🔒 **AJAX** — voor kleinere installaties of als aanvulling op het alarmsysteem\n• Smart locks en magneetsloten\n• Beheer via app\n\nBij hoeveel deuren en hoeveel gebruikers denkt u? Dan geef ik u een richting.`,
+          `Toegangscontrole is meer dan een sleutel vervangen door een pas. Het gaat om **weten wie er is, wanneer, en waar**.\n\nWij installeren complete toegangscontrolesystemen van Roger — van één deur tot een complex met honderden deuren en medewerkers. Inclusief:\n• Personeelsbeheer (wie heeft toegang tot welke zone)\n• Tijdregistratie (optioneel)\n• Koppeling met NVR/camerasysteem\n• AVG-conform\n\nGaat het om uw hoofdingang, een serverruimte, of het hele pand?`,
+        ]),
+        suggestions: ['Roger toegangscontrole', 'Combinatie alarm + toegang', 'Offerte aanvragen'],
+      }
+
+    case 'emergency':
+      return {
+        text: pick([
+          `Spoed? Geen probleem — wij zijn er voor u! 🚨\n\nBel ons **direct** op **06 148 909 15** — ook buiten kantooruren voor urgente gevallen.\n\nVoor **medisch transport** (spoedritten, tijdkritische monsters): wij zijn dag en nacht bereikbaar.\n\nVoor **IT-storingen** (netwerk plat, camera's offline): wij proberen dezelfde dag te komen.\n\nVoor **beveiligingsstoringen** (alarm, toegangscontrole): we behandelen dit als prioriteit.\n\nBel direct — dan regelen wij de rest. 📞`,
+          `Urgent? Bel ons meteen: **06 148 909 15** 📞\n\nWij begrijpen dat sommige situaties niet kunnen wachten. Medische transporten, netwerkstoringen, beveiligingsincidenten — wij behandelen spoedgevallen altijd met prioriteit.\n\nKunt u kort beschrijven wat er speelt? Dan schakel ik direct de juiste persoon in.`,
+        ]),
+        suggestions: ['06 148 909 15 bellen', 'mkgroup@corelink.nl', 'Terugbelverzoek spoed'],
+      }
+
+    case 'certification':
+      return {
+        text: pick([
+          `Certificeringen zijn voor ons geen papierwerk — het is een garantie voor u. Dit hebben wij in huis:\n\n🦺 **VCA VOL** — Veiligheid, Gezondheid en Milieu Checklist Aannemers (Volledig)\nBeide eigenaren zijn VCA VOL gecertificeerd. Verplicht voor veel opdrachtgevers in de bouw, industrie en infra.\n\n🏅 **GDP-certificering** (Good Distribution Practice)\nVerplicht voor medisch en farmaceutisch transport. Onze chauffeurs zijn allen gecertificeerd.\n\n📐 **TIA/EIA-568 & ISO 11801**\nInternationale normen voor gestructureerde bekabeling. Wij meten en certificeren élke verbinding na installatie.\n\n📄 **Testrapportage**\nBij elke bekabelingsinstallatie ontvangt u een volledig testrapport — 25 jaar garantie op de bekabelingsprestaties.\n\n🔒 **AVG-compliance (GDPR)**\nBij camerasystemen leveren wij standaard het volledige AVG-pakket mee.\n\nHeeft u een specifiek certificaat nodig voor uw aanbesteding of inkoop?`,
+          `Goede vraag — certificeringen zijn ons bewijs van kwaliteit.\n\n• **VCA VOL** — veiligheid op de werkvloer ✅\n• **GDP** — medisch transport ✅\n• **TIA-568 / ISO 11801** — bekabeling ✅\n• **AVG-compliance** — camerabeveiliging ✅\n• Gecertificeerde testrapportages bij elke oplevering ✅\n\nVoor aanbestedingen en inkoopafdelingen kunnen wij alle relevante documenten aanleveren. Wat heeft u nodig?`,
+        ]),
+        suggestions: ['GDP-certificaat opvragen', 'Testrapportage info', 'Offerte aanvragen'],
+      }
+
     case 'unknown':
     default: {
       if (ctx.messageCount >= 3) {
@@ -505,40 +601,28 @@ export default function ChatBot() {
   return (
     <>
       {/* ── Floating button ── */}
-      <div className="fixed bottom-6 right-6 z-[9999] flex flex-col items-end gap-3">
-        <AnimatePresence>
-          {!open && (
-            <motion.div
-              key="tooltip"
-              initial={{ opacity: 0, y: 6, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              className="flex items-center gap-2 text-xs font-semibold text-white px-3 py-1.5 rounded-full pointer-events-none"
-              style={{ background: 'rgba(15,32,68,0.95)', border: '1px solid rgba(37,99,235,0.4)', boxShadow: '0 4px 20px rgba(37,99,235,0.3)' }}
-            >
-              <span className="w-2 h-2 rounded-full bg-green-400 shrink-0" style={{ boxShadow: '0 0 6px rgba(74,222,128,0.8)' }} />
-              Daan is online — stel een vraag
-            </motion.div>
-          )}
-        </AnimatePresence>
+      <div className="fixed bottom-6 right-6 z-[9999] flex flex-col items-end gap-2 group">
+        {/* Tooltip — alleen zichtbaar bij hover */}
+        {!open && (
+          <div
+            className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center gap-2 text-xs font-semibold text-white px-3 py-1.5 rounded-full pointer-events-none"
+            style={{ background: 'rgba(15,32,68,0.92)', border: '1px solid rgba(37,99,235,0.35)' }}
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-green-400 shrink-0" />
+            Stel een vraag
+          </div>
+        )}
 
         <motion.button
           onClick={() => setOpen((v) => !v)}
-          whileHover={{ scale: 1.08 }}
-          whileTap={{ scale: 0.92 }}
-          className="relative w-14 h-14 rounded-full flex items-center justify-center shadow-2xl overflow-hidden"
-          style={{ background: 'linear-gradient(135deg,#2563EB,#06B6D4)', boxShadow: '0 8px 32px rgba(37,99,235,0.55)' }}
+          whileHover={{ scale: 1.06 }}
+          whileTap={{ scale: 0.94 }}
+          className="relative w-12 h-12 rounded-full flex items-center justify-center shadow-lg"
+          style={{ background: 'linear-gradient(135deg,#2563EB,#06B6D4)', boxShadow: '0 4px 16px rgba(37,99,235,0.4)' }}
           aria-label="Chat openen"
         >
-          {!open && (
-            <motion.span
-              className="absolute inset-0 rounded-full border-2 border-blue-300"
-              animate={{ scale: [1, 1.6, 1.6], opacity: [0.5, 0, 0] }}
-              transition={{ duration: 2.2, repeat: Infinity }}
-            />
-          )}
           {unread > 0 && !open && (
-            <span className="absolute -top-0.5 -right-0.5 w-5 h-5 rounded-full bg-red-500 text-white text-[10px] font-black flex items-center justify-center border-2 border-white">
+            <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-red-500 text-white text-[10px] font-black flex items-center justify-center border-2 border-white z-10">
               {unread}
             </span>
           )}

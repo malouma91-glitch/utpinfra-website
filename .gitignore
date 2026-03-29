@@ -27,3 +27,4 @@ dist-ssr
 leadgen.py
 leadgen_full.py
 *.xlsx
+.env.local

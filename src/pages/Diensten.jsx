@@ -78,7 +78,7 @@ function Diensten() {
       </section>
 
       {/* Quick links per divisie */}
-      <section className="bg-white py-6 border-b border-slate-200 sticky top-[108px] z-40 shadow-sm">
+      <section className="bg-white py-6 border-b border-slate-200 shadow-sm">
         <div className="container-main">
           <div className="flex flex-wrap gap-2 justify-center">
             {divisions.map((d) => (
