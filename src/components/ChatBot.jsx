@@ -713,7 +713,7 @@ export default function ChatBot() {
 
             {/* ── Messages ── */}
             <div
-              className="flex-grow overflow-y-auto px-3 py-4 space-y-4"
+              className="flex-grow min-h-0 overflow-y-auto px-3 py-4 space-y-4"
               style={{ background: '#08111e', scrollbarWidth: 'thin', scrollbarColor: 'rgba(37,99,235,0.25) transparent' }}
             >
               {messages.map((msg) => (
