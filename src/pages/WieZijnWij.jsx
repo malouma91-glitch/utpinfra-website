@@ -144,7 +144,7 @@ function WieZijnWij() {
                   </span>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-0">
-                  <div className="w-full sm:w-52 shrink-0 h-56 sm:h-auto overflow-hidden">
+                  <div className="w-full aspect-square sm:w-56 sm:aspect-auto sm:h-full shrink-0 overflow-hidden">
                     <img src={person.photo} alt={person.name} className="w-full h-full object-cover object-top" />
                   </div>
                   <div className="p-7 flex flex-col justify-between">
@@ -187,7 +187,7 @@ function WieZijnWij() {
               <div className="grid md:grid-cols-2 gap-8 mb-8">
                 {division.members.map((member) => (
                   <div key={member.name} className="bg-white rounded-2xl border border-slate-200 shadow-card hover:shadow-card-hover hover:border-blue-200 transition-all duration-300 overflow-hidden flex flex-col md:flex-row">
-                    <div className="w-full md:w-40 shrink-0 h-48 md:h-auto overflow-hidden">
+                    <div className="w-full aspect-square md:w-44 md:aspect-auto md:h-full shrink-0 overflow-hidden">
                       <img
                         src={member.photo}
                         alt={member.name}
